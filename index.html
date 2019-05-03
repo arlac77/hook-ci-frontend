@@ -43,15 +43,23 @@
         <thead>
           <tr>
             <th>Queue</th>
-            <th>Count</th>
+            <th>Active</th>
+            <th>Waiting</th>
             <th>Failed</th>
+            <th>Paused</th>
+            <th>Completed</th>
+            <th>Delayed</th>
           </tr>
       </thead>
       <tbody>
         <tr v-for="queue in queues">
           <td>{{ queue.name }}</td>
-          <td>{{ queue.count }}</td>
+          <td>{{ queue.active }}</td>
+          <td>{{ queue.waiting }}</td>
           <td>{{ queue.failed }}</td>
+          <td>{{ queue.paused }}</td>
+          <td>{{ queue.completed }}</td>
+          <td>{{ queue.delayed }}</td>
         </tr>
       </tbody>
     </table>
