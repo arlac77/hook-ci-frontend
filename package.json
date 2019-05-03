@@ -6,7 +6,7 @@
     "package": "npm-pkgbuild pkgbuild pacman makepkg"
   },
   "devDependencies": {
-    "npm-pkgbuild": "^5.2.5",
+    "npm-pkgbuild": "^5.2.6",
     "semantic-release": "^15.0.0"
   },
   "pacman": {
