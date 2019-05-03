@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <title>hook-ci</title>
     <link
-      href="https://netdna.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/components/table.min.css"
       rel="stylesheet"
     />
     <script type="module">
@@ -37,16 +37,24 @@
   </head>
   <body>
     <div id="app">
-      {{ version }}
-      <div v-for="queue in queues">
-        {{ queue.name }}
-        <span>
-          {{ queue.count }}
-        </span>
-        <span>
-          {{ queue.failed }}
-        </span>
-      </div>
+      Version: {{ version }}
+
+      <table class="ui celled striped table">
+        <thead>
+          <tr>
+            <th>Queue</th>
+            <th>Count</th>
+            <th>Failed</th>
+          </tr>
+      </thead>
+      <tbody>
+        <tr v-for="queue in queues">
+          <td>{{ queue.name }}</td>
+          <td>{{ queue.count }}</td>
+          <td>{{ queue.failed }}</td>
+        </tr>
+      </tbody>
+    </table>
     </div>
   </body>
 </html>
