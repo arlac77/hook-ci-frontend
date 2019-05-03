@@ -2,6 +2,15 @@
   "name": "hook-ci-frontend",
   "description": "hook-ci web frontend",
   "version": "0.0.0-semantic-release",
+  "keywords": [
+    "ci"
+  ],
+  "contributors": [
+    {
+      "name": "Markus Felten",
+      "email": "markus.felten@gmx.de"
+    }
+  ],
   "scripts": {
     "package": "npm-pkgbuild pkgbuild pacman makepkg"
   },
@@ -9,6 +18,14 @@
     "npm-pkgbuild": "^5.2.6",
     "semantic-release": "^15.0.0"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/arlac77/hook-ci-frontend.git"
+  },
+  "bugs": {
+    "url": "https://github.com/arlac77/hook-ci-frontend/issues"
+  },
+  "homepage": "https://github.com/arlac77/hook-ci-frontend#readme",
   "pacman": {
     "groups": "ci",
     "content": {
