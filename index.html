@@ -4,23 +4,46 @@
     <meta charset="UTF-8" />
     <title>hook-ci</title>
     <link
-      href="//netdna.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      href="https://netdna.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
       rel="stylesheet"
     />
     <script type="module">
-      import Vue from 'https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.esm.browser.js'
+      import Vue from 'https://cdn.jsdelivr.net/npm/vue/dist/vue.esm.browser.js'
 
       const app = new Vue({
         el: '#app',
         data: {
-          message: 'Hello Hook-CI!'
+          message: 'Hello Hook-CI!',
+          seen: true,
+          queues: [{
+            name: "request",
+            size: 0
+          }]
         }
       });
+
+      setTimeout(async () => {
+        app.queues.push({name: "XX", size:7});
+        const data = await fetch('api/state');
+        const state = await data.json();
+        console.log(state);
+        app.queues.length = 0;
+        app.queues.push(...state.queues);
+      },2000);
+
     </script>
   </head>
   <body>
     <div id="app">
       {{ message }}
+      <span v-if="seen">Now you see me</span>
+
+      <div v-for="queue in queues">
+        {{ queue.name }}
+        <span>
+          {{ queue.size }}
+        </span>
+      </div>
     </div>
   </body>
 </html>
