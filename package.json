@@ -1,3 +1,21 @@
 {
-  "name": "hook-ci-frontend"
+  "name": "hook-ci-frontend",
+  "description": "hook-ci web frontend",
+  "version": "0.0.0-semantic-release",
+  "scripts": {
+    "package": "npm-pkgbuild pkgbuild pacman makepkg"
+  },
+  "devDependencies": {
+    "npm-pkgbuild": "^5.2.5",
+    "semantic-release": "^15.0.0"
+  },
+  "pacman": {
+    "groups": "ci",
+    "content": {
+      "/services/hook-ci/docroot/index.html": "index.html"
+    },
+    "depends": {
+      "hook-ci": ""
+    }
+  }
 }
