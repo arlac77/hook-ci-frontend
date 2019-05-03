@@ -13,35 +13,38 @@
       const app = new Vue({
         el: '#app',
         data: {
-          message: 'Hello Hook-CI!',
-          seen: true,
-          queues: [{
-            name: "request",
-            size: 0
-          }]
+          version: 'xxx',
+          queues: []
         }
       });
 
-      setTimeout(async () => {
-        app.queues.push({name: "XX", size:7});
-        const data = await fetch('api/state');
-        const state = await data.json();
-        console.log(state);
-        app.queues.length = 0;
-        app.queues.push(...state.queues);
-      },2000);
+      const refresh = async () => {
+        try {
+          const data = await fetch('api/state');
+          const state = await data.json();
+          app.version = state.version;
+          app.queues.length = 0;
+          app.queues.push(...state.queues);
+        }
+        catch(err) {
+            console.error(err);
+        }
+        setTimeout(refresh,5000);
+      };
 
+      refresh();
     </script>
   </head>
   <body>
     <div id="app">
-      {{ message }}
-      <span v-if="seen">Now you see me</span>
-
+      {{ version }}
       <div v-for="queue in queues">
         {{ queue.name }}
         <span>
-          {{ queue.size }}
+          {{ queue.count }}
+        </span>
+        <span>
+          {{ queue.failed }}
         </span>
       </div>
     </div>
