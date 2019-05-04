@@ -39,7 +39,7 @@
     "groups": "ci",
     "content": {
       "/services/hook-ci/docroot/index.html": "build/index.html",
-      "/services/hook-ci/docroot/bundle.js": "build/bundle.js"
+      "/services/hook-ci/docroot/main.mjs": "build/main.mjs"
     },
     "depends": {
       "hook-ci": ""
