@@ -1,7 +1,7 @@
 import copy from "rollup-plugin-copy";
 
 const production = !process.env.ROLLUP_WATCH;
-const dist = 'build';
+const dist = 'build/dist';
 
 const config = {
   input: "src/main.mjs",

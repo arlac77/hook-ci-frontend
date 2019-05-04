@@ -37,9 +37,12 @@
   "homepage": "https://github.com/arlac77/hook-ci-frontend#readme",
   "pacman": {
     "groups": "ci",
+    "installdir": "/services/hook-ci/docroot",
     "content": {
-      "/services/hook-ci/docroot/index.html": "build/index.html",
-      "/services/hook-ci/docroot/main.mjs": "build/main.mjs"
+      "${installdir}/": {
+        "base": "build/dist",
+        "pattern": "**/*"
+      }
     },
     "depends": {
       "hook-ci": ""
