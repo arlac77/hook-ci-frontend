@@ -14,7 +14,7 @@ app.use(
 );
 
 browserSync.init({
-  server: "build",
+  server: "src",
   watch: true,
   middleware: [app]
 });

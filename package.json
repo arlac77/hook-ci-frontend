@@ -14,7 +14,6 @@
   ],
   "scripts": {
     "start": "node ./browser-sync.js",
-    "start2": "browser-sync start --server build --files build",
     "startx": "rollup -c rollup.config.js -w",
     "prepare": "rollup -c rollup.config.js",
     "package": "npm-pkgbuild pkgbuild pacman makepkg"
