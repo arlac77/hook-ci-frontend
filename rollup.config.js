@@ -6,8 +6,8 @@ const dist = 'build';
 const config = {
   input: "src/main.mjs",
   output: {
-    file: `${dist}/bundle.js`,
-    format: "cjs"
+    file: `${dist}/main.mjs`,
+    format: "esm"
   },
   watch: {
     include: 'src/**/*'

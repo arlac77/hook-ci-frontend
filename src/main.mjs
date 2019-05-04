@@ -1,3 +1,4 @@
+import Vue from 'https://cdn.jsdelivr.net/npm/vue/dist/vue.esm.browser.js';
 
 
 export async function refresh(app) {
@@ -11,3 +12,12 @@ export async function refresh(app) {
     console.error(err);
   }
 }
+
+
+export const app = new Vue({
+  el: '#app',
+  data: {
+    version: '',
+    queues: []
+  }
+});

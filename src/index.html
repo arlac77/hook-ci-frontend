@@ -8,16 +8,7 @@
       rel="stylesheet"
     />
     <script type="module">
-    import Vue from 'https://cdn.jsdelivr.net/npm/vue/dist/vue.esm.browser.js'
-    import { refresh } from './main.mjs'
-
-      const app = new Vue({
-        el: '#app',
-        data: {
-          version: '',
-          queues: []
-        }
-      });
+      import { refresh, app } from './main.mjs'
 
       setTimeout(() => refresh(app), 5000);
     </script>
