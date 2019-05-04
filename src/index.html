@@ -7,40 +7,15 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/components/table.min.css"
       rel="stylesheet"
     />
-    <script type="module">
-      import { refresh, app } from './main.mjs'
-
-      setTimeout(() => refresh(app), 5000);
-    </script>
   </head>
   <body>
-    <div id="app">
-      Version: {{ version }}
+    <app></app>
+    <script type="module">
+      import { app } from './main.mjs'
 
-      <table class="ui celled striped table">
-        <thead>
-          <tr>
-            <th>Queue</th>
-            <th>Active</th>
-            <th>Waiting</th>
-            <th>Failed</th>
-            <th>Paused</th>
-            <th>Completed</th>
-            <th>Delayed</th>
-          </tr>
-      </thead>
-      <tbody>
-        <tr v-for="queue in queues">
-          <td>{{ queue.name }}</td>
-          <td>{{ queue.active }}</td>
-          <td>{{ queue.waiting }}</td>
-          <td>{{ queue.failed }}</td>
-          <td>{{ queue.paused }}</td>
-          <td>{{ queue.completed }}</td>
-          <td>{{ queue.delayed }}</td>
-        </tr>
-      </tbody>
-    </table>
-    </div>
+      app.$mount('app');
+
+      //setTimeout(() => refresh(app), 5000);
+    </script>
   </body>
 </html>

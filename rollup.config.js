@@ -1,18 +1,32 @@
 import copy from "rollup-plugin-copy";
+import replace from "rollup-plugin-replace";
+import vue from "rollup-plugin-vue";
+import resolve from 'rollup-plugin-node-resolve';
+import commonjs from 'rollup-plugin-commonjs'
 
-const production = !process.env.ROLLUP_WATCH;
-const dist = 'build/dist';
+const isProduction = !process.env.ROLLUP_WATCH;
+const dist = "build/dist";
 
 const config = {
   input: "src/main.mjs",
   output: {
+    //globals: { vue: 'Vue' },
     file: `${dist}/main.mjs`,
     format: "esm"
   },
   watch: {
-    include: 'src/**/*'
+    include: "src/**/*"
   },
   plugins: [
+    resolve(),
+    commonjs(),
+    vue({
+      template: {
+        isProduction,
+        compilerOptions: { preserveWhitespace: false }
+      },
+      css: true
+    }),
     copy({
       targets: ["src/index.html"],
       outputFolder: dist,
@@ -20,5 +34,14 @@ const config = {
     })
   ]
 };
+
+if (isProduction) {
+  process.env.NODE_ENV = "production";
+  config.plugins.push(
+    replace({
+      "process.env.NODE_ENV": JSON.stringify("production")
+    })
+  );
+}
 
 export default config;
