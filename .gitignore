@@ -1,7 +1,5 @@
 /node_modules
-/dist
-/coverage
-/build
+dist
+build
 .DS_Store
-.env
 npm-debug.log

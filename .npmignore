@@ -1,6 +1,5 @@
-coverage
-node_modules
 build
+dist
 tests
 doc
 *.log
@@ -8,9 +7,7 @@ doc
 .DS_Store
 .test
 .tmp
-.gitignore
 .npmrc
 .travis.yml
-.npmignore
 .vscode
 .nyc_output

@@ -3,7 +3,8 @@
   "description": "hook-ci web frontend",
   "version": "0.0.0-semantic-release",
   "keywords": [
-    "ci"
+    "ci",
+    "web"
   ],
   "contributors": [
     {
@@ -12,10 +13,16 @@
     }
   ],
   "scripts": {
+    "start": "rollup -c rollup.config.js -w",
+    "prepare": "rollup -c rollup.config.js",
     "package": "npm-pkgbuild pkgbuild pacman makepkg"
   },
   "devDependencies": {
     "npm-pkgbuild": "^5.2.9",
+    "rollup": "^1.11.2",
+    "rollup-plugin-copy": "^2.0.1",
+    "rollup-plugin-livereload": "^1.0.0",
+    "rollup-plugin-serve": "^1.0.1",
     "semantic-release": "^15.0.0"
   },
   "repository": {
@@ -29,7 +36,8 @@
   "pacman": {
     "groups": "ci",
     "content": {
-      "/services/hook-ci/docroot/index.html": "index.html"
+      "/services/hook-ci/docroot/index.html": "dist/index.html",
+      "/services/hook-ci/docroot/bundle.js": "dist/bundle.js"
     },
     "depends": {
       "hook-ci": ""
