@@ -1,6 +1,7 @@
 import copy from "rollup-plugin-copy";
 import replace from "rollup-plugin-replace";
 import vue from "rollup-plugin-vue";
+import css from 'rollup-plugin-css-only';
 import resolve from 'rollup-plugin-node-resolve';
 import commonjs from 'rollup-plugin-commonjs'
 
@@ -20,12 +21,13 @@ const config = {
   plugins: [
     resolve(),
     commonjs(),
+    css(),
     vue({
       template: {
         isProduction,
         compilerOptions: { preserveWhitespace: false }
       },
-      css: true
+      css: false
     }),
     copy({
       targets: ["src/index.html"],

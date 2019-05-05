@@ -1,9 +1,8 @@
 import Vue from 'vue';
+import BootstrapVue from 'bootstrap-vue'
 import App from './App.vue';
-
-//import Vue from 'https://cdn.jsdelivr.net/npm/vue/dist/vue.esm.browser.js';
-//import VueRouter from 'https://cdnjs.cloudflare.com/ajax/libs/vue-router/3.0.6/vue-router.esm.js';
-
+import 'bootstrap/dist/css/bootstrap.css'
+import 'bootstrap-vue/dist/bootstrap-vue.css'
 
 export async function refresh(app) {
   try {
@@ -18,6 +17,9 @@ export async function refresh(app) {
 }
 
 //App.props.queues.push([{name:"EEE"}]);
+
+
+Vue.use(BootstrapVue)
 
 //Vue.use(VueRouter);
 

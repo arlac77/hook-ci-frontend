@@ -1,19 +1,19 @@
 <template>
   <div class="view">
-    <table class="ui celled striped table">
+    <table class="table table-striped table-bordered table-hover">
       <thead>
         <tr>
-          <th>Queue</th>
-          <th>Active</th>
-          <th>Waiting</th>
-          <th>Failed</th>
-          <th>Paused</th>
-          <th>Completed</th>
-          <th>Delayed</th>
+          <th scope="col">Queue</th>
+          <th scope="col">Active</th>
+          <th scope="col">Waiting</th>
+          <th scope="col">Failed</th>
+          <th scope="col">Paused</th>
+          <th scope="col">Completed</th>
+          <th scope="col">Delayed</th>
         </tr>
     </thead>
     <tbody>
-      <tr v-for="queue in queues">
+      <tr scope="row" v-for="queue in queues">
         <td>{{ queue.name }}</td>
         <td>{{ queue.active }}</td>
         <td>{{ queue.waiting }}</td>
