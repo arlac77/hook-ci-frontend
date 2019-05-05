@@ -13,16 +13,17 @@
     }
   ],
   "scripts": {
-    "start": "node ./browser-sync.js",
-    "startx": "rollup -c rollup.config.js -w",
+    "start": "rollup -c rollup.config.js -w",
+    "test": "echo ok",
     "prepare": "rollup -c rollup.config.js",
     "package": "npm-pkgbuild pkgbuild pacman makepkg"
   },
   "devDependencies": {
+    "@semantic-release/exec": "^3.3.2",
     "browser-sync": "^2.26.5",
     "express": "^4.16.4",
     "http-proxy-middleware": "^0.19.1",
-    "npm-pkgbuild": "^5.2.9",
+    "npm-pkgbuild": "^5.3.2",
     "rollup": "^1.11.2",
     "rollup-plugin-commonjs": "^9.3.4",
     "rollup-plugin-copy": "^2.0.1",
@@ -41,6 +42,18 @@
     "url": "https://github.com/arlac77/hook-ci-frontend/issues"
   },
   "homepage": "https://github.com/arlac77/hook-ci-frontend#readme",
+  "release": {
+    "plugins": [
+      "@semantic-release/commit-analyzer",
+      "@semantic-release/release-notes-generator",
+      [
+        "@semantic-release/exec",
+        {
+          "publishCmd": "npx npm-pkgbuild --pkgver ${nextRelease.version} pkgbuild pacman makepkg"
+        }
+      ]
+    ]
+  },
   "pacman": {
     "groups": "ci",
     "installdir": "/services/hook-ci/docroot",
