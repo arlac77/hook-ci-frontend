@@ -27,12 +27,6 @@
 </div>
 </template>
 
-<style>
-.view {
-  color: teal;
-}
-</style>
-
 <script>
 export default {
   name: 'AppBody',
