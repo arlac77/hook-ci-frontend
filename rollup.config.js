@@ -1,9 +1,9 @@
 import copy from "rollup-plugin-copy";
 import replace from "rollup-plugin-replace";
 import vue from "rollup-plugin-vue";
-import css from 'rollup-plugin-css-only';
-import resolve from 'rollup-plugin-node-resolve';
-import commonjs from 'rollup-plugin-commonjs'
+import css from "rollup-plugin-css-only";
+import resolve from "rollup-plugin-node-resolve";
+import commonjs from "rollup-plugin-commonjs";
 
 const isProduction = !process.env.ROLLUP_WATCH;
 const dist = "build/dist";
@@ -12,7 +12,7 @@ const config = {
   input: "src/main.mjs",
   output: {
     //globals: { vue: 'Vue' },
-    file: `${dist}/main.mjs`,
+    file: `${dist}/bundle.mjs`,
     format: "esm"
   },
   watch: {
@@ -21,7 +21,7 @@ const config = {
   plugins: [
     resolve(),
     commonjs(),
-    css(),
+    css({ output: `${dist}/bundle.css` }),
     vue({
       template: {
         isProduction,
