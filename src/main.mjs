@@ -1,4 +1,5 @@
 import Vue from 'vue';
+import VueRouter from 'vue-router';
 import BootstrapVue from 'bootstrap-vue'
 import App from './App.vue';
 import 'bootstrap/dist/css/bootstrap.css'
@@ -16,35 +17,22 @@ export async function refresh(app) {
   }
 }
 
-//App.props.queues.push([{name:"EEE"}]);
+Vue.use(BootstrapVue);
 
-
-Vue.use(BootstrapVue)
-
-//Vue.use(VueRouter);
-
-const Home = { template: '<div>home</div>' };
 const Foo = { template: '<div>foo</div>' };
 const Bar = { template: '<div>bar</div>' };
 
-/*
+const routes = [
+  { path: '/foo', component: Foo },
+  { path: '/bar', component: Bar }
+];
+
 const router = new VueRouter({
-  mode: 'history',
-  routes: [
-    { path: '/', component: Home },
-    { path: '/foo', component: Foo },
-    { path: '/bar', component: Bar }
-  ]
-})
-*/
+  routes
+});
 
 
 export const app = new Vue({
-  render: h => h(App),
-
-  //el: '#app',
-//  router,
-  data: {
-    queues: []
-  }
-});
+  router,
+  render: h => h(App)
+}).$mount('app');

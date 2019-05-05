@@ -4,17 +4,32 @@ import vue from "rollup-plugin-vue";
 import css from "rollup-plugin-css-only";
 import resolve from "rollup-plugin-node-resolve";
 import commonjs from "rollup-plugin-commonjs";
+import pkg from './package.json';
+
 
 const isProduction = !process.env.ROLLUP_WATCH;
 const dist = "build/dist";
 
+const globals = { vue: 'Vue' };
+const external = Object.keys(pkg.dependencies);
+
 const config = {
   input: "src/main.mjs",
+  //external,
+
   output: {
-    //globals: { vue: 'Vue' },
-    file: `${dist}/bundle.mjs`,
-    format: "esm"
+    //globals,
+    file: `${dist}/bundle.js`,
+    format: 'esm'
   },
+  /*
+  output: {
+    globals,
+    name: 'bundle',
+    file: `${dist}/bundle.js`,
+    format: 'umd'
+  },
+  */
   watch: {
     include: "src/**/*"
   },
@@ -69,8 +84,6 @@ if (isProduction) {
   setTimeout(() => {
     browsersync();
   }, 100);
-
-  console.log("XXX");
 }
 
 export default config;
