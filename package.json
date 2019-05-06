@@ -56,7 +56,7 @@
   },
   "pacman": {
     "groups": "ci",
-    "installdir": "/services/hook-ci/docroot",
+    "installdir": "/services/hook-ci/frontend",
     "content": {
       "${installdir}/": {
         "base": "build/dist",
