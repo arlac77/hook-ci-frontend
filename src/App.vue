@@ -3,7 +3,7 @@
     <h1>Hook CI</h1>
     <p>
       <router-link to="/about">About</router-link>
-      <router-link to="/foo">Foo</router-link>
+      <router-link to="/queues">Queues</router-link>
     </p>
     <router-view> </router-view>
     <div class="body">
@@ -20,13 +20,11 @@
 
 <script>
 import AppHeader from "./components/AppHeader.vue";
-import AppBody from "./components/AppBody.vue";
 
 export default {
   name: "App",
   components: {
-    AppHeader,
-    AppBody
+    AppHeader
   }
 };
 </script>

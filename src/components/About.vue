@@ -21,14 +21,14 @@ export default {
     }
   },
   methods: {
-    async fetchState() {
+    async refresh() {
       const data = await fetch("api/state");
       const state = await data.json();
       this.version = state.version;
     }
   },
   mounted() {
-    this.fetchState();
+    this.refresh();
   }
 };
 </script>

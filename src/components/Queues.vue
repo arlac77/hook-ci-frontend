@@ -29,7 +29,7 @@
 
 <script>
 export default {
-  name: "AppBody",
+  name: "Queues",
   props: {
     queues: {
       type: Array,
@@ -37,7 +37,7 @@ export default {
     }
   },
   methods: {
-    async fetchQueues() {
+    async refresh() {
       const data = await fetch("api/state");
       const state = await data.json();
       this.queues.length = 0;
@@ -45,7 +45,7 @@ export default {
     }
   },
   mounted() {
-    this.fetchQueues();
+    this.refresh();
   }
 };
 </script>
