@@ -6,10 +6,12 @@ import VueFilterPrettyBytes from 'vue-filter-pretty-bytes'
 import App from "./App.vue";
 import About from "./components/About.vue";
 import Queues from "./components/Queues.vue";
+import Home from "./components/Home.vue";
 import "bootstrap/dist/css/bootstrap.css";
 import "bootstrap-vue/dist/bootstrap-vue.css";
 
 const routes = [
+  { path: "/", component: Home },
   { path: "/about", component: About },
   { path: "/queues", component: Queues }
 ];

@@ -5,7 +5,7 @@
 </style>
 
 <template>
-  <div id="about" class="card" style="width: 18rem;">
+  <div id="about" class="card" style="width: 24rem;">
     <div class="card-header">
       Hook-CI
     </div>
