@@ -19,7 +19,7 @@ export default {
     version: {
       type: String,
       default: "-unknown-"
-    }
+    },
     uptime: {
       type: String,
       default: "0"
