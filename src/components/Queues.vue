@@ -14,7 +14,7 @@
       </thead>
       <tbody>
         <tr scope="row" v-for="queue in queues">
-          <td>{{ queue.name }}</td>
+          <td><a href="#/queue/request">{{ queue.name }}</a></td>
           <td>{{ queue.active }}</td>
           <td>{{ queue.waiting }}</td>
           <td>{{ queue.failed }}</td>
@@ -38,10 +38,10 @@ export default {
   },
   methods: {
     async refresh() {
-      const data = await fetch("api/state");
-      const state = await data.json();
+      const data = await fetch("api/queues");
+      const queues = await data.json();
       this.queues.length = 0;
-      this.queues.push(...state.queues);
+      this.queues.push(...queues);
     }
   },
   mounted() {
