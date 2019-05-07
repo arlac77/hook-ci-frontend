@@ -1,29 +1,13 @@
 <template>
   <div class="view">
-    <table class="table table-striped table-bordered table-hover">
-      <thead>
-        <tr>
-          <th scope="col">Queue</th>
-          <th scope="col">Active</th>
-          <th scope="col">Waiting</th>
-          <th scope="col">Failed</th>
-          <th scope="col">Paused</th>
-          <th scope="col">Completed</th>
-          <th scope="col">Delayed</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr scope="row" v-for="queue in queues">
-          <td><a href="#/queue/request">{{ queue.name }}</a></td>
-          <td>{{ queue.active }}</td>
-          <td>{{ queue.waiting }}</td>
-          <td>{{ queue.failed }}</td>
-          <td>{{ queue.paused }}</td>
-          <td>{{ queue.completed }}</td>
-          <td>{{ queue.delayed }}</td>
-        </tr>
-      </tbody>
-    </table>
+    <b-button @click="refresh">fetch</b-button>
+
+    <b-table class="table table-striped table-bordered table-hover" :primary-key=0 :busy="isBusy" :items="items" :fields="fields">
+      <div slot="table-busy" class="text-center my-2">
+      <b-spinner class="align-middle"></b-spinner>
+      <strong>Loading...</strong>
+    </div>
+    </b-table>
   </div>
 </template>
 
@@ -31,21 +15,58 @@
 export default {
   name: "Queues",
   props: {
-    queues: {
+    items: {
       type: Array,
       default: []
     }
   },
   methods: {
     async refresh() {
+      this.isBusy = true;
       const data = await fetch("api/queues");
       const queues = await data.json();
-      this.queues.length = 0;
-      this.queues.push(...queues);
+      this.items.length = 0;
+      this.items.push(...queues);
+      this.isBusy = false;
     }
   },
   mounted() {
     this.refresh();
-  }
+  },
+  data() {
+   return {
+     isBusy: false,
+     fields: {
+       name: {
+         label: 'Queue',
+         sortable: true
+       },
+       active: {
+         label: 'Active',
+         sortable: true
+       },
+       waiting: {
+         label: 'Waiting',
+         sortable: true
+       },
+       failed: {
+         label: 'Failed',
+         sortable: true
+       },
+       paused: {
+         label: 'Paused',
+         sortable: true
+       },
+       completed: {
+         label: 'Completed',
+         sortable: true
+       },
+       delayed: {
+         label: 'Delayed',
+         sortable: true
+       },
+     }
+   }
+ }
 };
 </script>
