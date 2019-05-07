@@ -7,8 +7,7 @@
 <template>
   <div id="about">
     <h1 class="header bold">About</h1>
-    About {{ version }}
-    XXXXX
+    Hook-CI {{ version }}
   </div>
 </template>
 
@@ -18,8 +17,18 @@ export default {
   props: {
     version: {
       type: String,
-      default: "1.11"
+      default: "-unknown-"
     }
+  },
+  methods: {
+    async fetchState() {
+      const data = await fetch("api/state");
+      const state = await data.json();
+      this.version = state.version;
+    }
+  },
+  mounted() {
+    this.fetchState();
   }
 };
 </script>
