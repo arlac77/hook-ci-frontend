@@ -1,9 +1,10 @@
-import Vue from 'vue';
-import VueRouter from 'vue-router';
-import BootstrapVue from 'bootstrap-vue'
-import App from './App.vue';
-import 'bootstrap/dist/css/bootstrap.css'
-import 'bootstrap-vue/dist/bootstrap-vue.css'
+import Vue from "vue";
+import VueRouter from "vue-router";
+import BootstrapVue from "bootstrap-vue";
+import App from "./App.vue";
+import About from "./components/AppHeader.vue";
+import "bootstrap/dist/css/bootstrap.css";
+import "bootstrap-vue/dist/bootstrap-vue.css";
 
 export async function refresh(app) {
   try {
@@ -17,22 +18,21 @@ export async function refresh(app) {
   }
 }
 
-Vue.use(BootstrapVue);
-
-const Foo = { template: '<div>foo</div>' };
-const Bar = { template: '<div>bar</div>' };
+const Foo = { template: "<div>foo</div>" };
 
 const routes = [
-  { path: '/foo', component: Foo },
-  { path: '/bar', component: Bar }
+  { path: "/about", component: About },
+  { path: "/foo", component: Foo }
 ];
 
 const router = new VueRouter({
   routes
 });
 
+Vue.use(VueRouter);
+Vue.use(BootstrapVue);
 
 export const app = new Vue({
   router,
   render: h => h(App)
-}).$mount('app');
+}).$mount("app");

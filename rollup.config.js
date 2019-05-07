@@ -4,13 +4,12 @@ import vue from "rollup-plugin-vue";
 import css from "rollup-plugin-css-only";
 import resolve from "rollup-plugin-node-resolve";
 import commonjs from "rollup-plugin-commonjs";
-import pkg from './package.json';
-
+import pkg from "./package.json";
 
 const isProduction = !process.env.ROLLUP_WATCH;
 const dist = "build/dist";
 
-const globals = { vue: 'Vue' };
+const globals = { vue: "Vue" };
 const external = Object.keys(pkg.dependencies);
 
 const config = {
@@ -20,7 +19,7 @@ const config = {
   output: {
     //globals,
     file: `${dist}/bundle.js`,
-    format: 'esm'
+    format: "esm"
   },
   /*
   output: {
@@ -69,7 +68,7 @@ if (isProduction) {
       "/api",
       proxy({
         target: "https://mfelten.dynv6.net/services/ci/",
-        changeOrigin: true,
+        changeOrigin: true
         //logLevel: "debug"
       })
     );
