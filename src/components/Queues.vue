@@ -24,9 +24,9 @@ export default {
     async refresh() {
       this.isBusy = true;
       const data = await fetch("api/queues");
-      const queues = await data.json();
+      const items = await data.json();
       this.items.length = 0;
-      this.items.push(...queues);
+      this.items.push(...items);
       this.isBusy = false;
     }
   },

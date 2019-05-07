@@ -1,24 +1,31 @@
 <template>
   <div id="app">
-  <nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-dark">
-    <a class="navbar-brand" href="#/">Hook CI</a>
-    <button class="navbar-toggler" type="button">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarText">
-      <ul class="navbar-nav mr-auto">
-        <li class="nav-item active">
-          <a class="nav-link" href="#/">Home <span class="sr-only">(current)</span></a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#/queues">Queues</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#/about">About</a>
-        </li>
-      </ul>
-    </div>
-  </nav>
+    <b-navbar toggleable="lg" type="dark" variant="dark" sticky=true>
+      <b-navbar-brand href="#">Hook CI</b-navbar-brand>
+
+      <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
+
+      <b-collapse id="nav-collapse" is-nav>
+        <b-navbar-nav>
+          <b-nav-item href="#/queues">Queues</b-nav-item>
+          <b-nav-item href="#/queue/request/jobs">Request Jobs</b-nav-item>
+          <b-nav-item href="#/about">About</b-nav-item>
+        </b-navbar-nav>
+
+        <b-navbar-nav class="ml-auto">
+          <b-nav-form>
+            <b-form-input size="sm" class="mr-sm-2" placeholder="Search"></b-form-input>
+            <b-button size="sm" class="my-2 my-sm-0" type="submit">Search</b-button>
+          </b-nav-form>
+
+          <b-nav-item-dropdown right>
+            <template slot="button-content"><em>User</em></template>
+            <b-dropdown-item href="#">Profile</b-dropdown-item>
+            <b-dropdown-item href="#">Sign Out</b-dropdown-item>
+          </b-nav-item-dropdown>
+        </b-navbar-nav>
+      </b-collapse>
+    </b-navbar>
     <router-view> </router-view>
   </div>
 </template>

@@ -13,7 +13,7 @@ import "bootstrap/dist/css/bootstrap.css";
 import "bootstrap-vue/dist/bootstrap-vue.css";
 
 const routes = [
-  { path: "/", component: Home },
+  { path: "/", name: 'home', component: Home },
   { path: "/about", component: About },
   { path: "/queues", component: Queues },
   { path: "/queue/:queue", component: Queue },
