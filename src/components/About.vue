@@ -7,7 +7,8 @@
 <template>
   <div id="about">
     <h1 class="header bold">About</h1>
-    Hook-CI {{ version }}
+    <p>Hook-CI {{ version }}</p>
+    <p>Uptime {{ uptime }}</p>
   </div>
 </template>
 
@@ -19,12 +20,17 @@ export default {
       type: String,
       default: "-unknown-"
     }
+    uptime: {
+      type: String,
+      default: "0"
+    }
   },
   methods: {
     async refresh() {
       const data = await fetch("api/state");
       const state = await data.json();
       this.version = state.version;
+      this.uptime = state.uptime;
     }
   },
   mounted() {
