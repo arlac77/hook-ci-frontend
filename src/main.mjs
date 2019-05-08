@@ -1,8 +1,8 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
 import BootstrapVue from "bootstrap-vue";
-import VueMomentLib from 'vue-moment-lib';
-import VueFilterPrettyBytes from 'vue-filter-pretty-bytes'
+import VueMomentLib from "vue-moment-lib";
+import VueFilterPrettyBytes from "vue-filter-pretty-bytes";
 import App from "./App.vue";
 import About from "./components/About.vue";
 import Queues from "./components/Queues.vue";
@@ -13,11 +13,11 @@ import "bootstrap/dist/css/bootstrap.css";
 import "bootstrap-vue/dist/bootstrap-vue.css";
 
 const routes = [
-  { path: "/", name: 'home', component: Home },
+  { path: "/", name: "home", component: Home },
   { path: "/about", component: About },
-  { path: "/queues", component: Queues },
-  { path: "/queue/:queue", component: Queue },
-  { path: "/queue/:queue/jobs", component: Jobs }
+  { path: "/queues", name: "queues", component: Queues },
+  { path: "/queue/:queue", name: "queue", component: Queue },
+  { path: "/queue/:queue/jobs", name: "jobs", component: Jobs }
 ];
 
 const router = new VueRouter({
