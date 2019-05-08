@@ -14,23 +14,25 @@
   ],
   "scripts": {
     "start": "rollup -c rollup.config.js -w",
-    "test": "echo ok",
+    "test": "ava",
     "prepare": "rollup -c rollup.config.js",
     "package": "npm-pkgbuild pkgbuild pacman makepkg"
   },
   "devDependencies": {
+    "ava": "^1.4.1",
     "@semantic-release/exec": "^3.3.3",
     "browser-sync": "^2.26.5",
     "express": "^4.16.4",
     "http-proxy-middleware": "^0.19.1",
     "npm-pkgbuild": "^5.3.5",
+    "puppeteer": "^1.15.0",
     "rollup": "^1.11.3",
     "rollup-plugin-commonjs": "^9.3.4",
     "rollup-plugin-copy": "^2.0.1",
+    "rollup-plugin-css-only": "^1.0.0",
     "rollup-plugin-node-resolve": "^4.2.3",
     "rollup-plugin-replace": "^2.2.0",
     "rollup-plugin-vue": "^5.0.0",
-    "rollup-plugin-css-only": "^1.0.0",
     "semantic-release": "^15.13.12",
     "vue-template-compiler": "^2.6.10"
   },
@@ -52,6 +54,21 @@
           "publishCmd": "npx npm-pkgbuild --pkgver ${nextRelease.version} pkgbuild pacman makepkg"
         }
       ]
+    ]
+  },
+  "ava": {
+    "files": [
+      "tests/*-test.js",
+      "tests/*-test.mjs"
+    ],
+    "require": [
+      "esm"
+    ],
+    "babel": false,
+    "compileEnhancements": false,
+    "extensions": [
+      "js",
+      "mjs"
     ]
   },
   "pacman": {
