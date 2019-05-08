@@ -1,7 +1,4 @@
 <style>
-.header {
-  padding: 10px 0;
-}
 </style>
 
 <template>
