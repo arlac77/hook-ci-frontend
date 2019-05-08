@@ -36,6 +36,10 @@ export default {
   },
   mounted() {
     this.refresh();
+    this.interval = setInterval( () => { this.refresh(); }, 5000);
+  },
+  beforeDestroy(){
+    clearInterval(this.interval);
   }
 };
 </script>
