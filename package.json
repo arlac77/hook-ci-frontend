@@ -19,12 +19,12 @@
     "package": "npm-pkgbuild pkgbuild pacman makepkg"
   },
   "devDependencies": {
-    "ava": "^1.4.1",
     "@semantic-release/exec": "^3.3.3",
+    "ava": "^1.4.1",
     "browser-sync": "^2.26.5",
     "express": "^4.16.4",
     "http-proxy-middleware": "^0.19.1",
-    "npm-pkgbuild": "^6.0.7",
+    "npm-pkgbuild": "^6.0.8",
     "puppeteer": "^1.15.0",
     "rollup": "^1.11.3",
     "rollup-plugin-commonjs": "^9.3.4",
