@@ -6,6 +6,13 @@
       :fields="fields"
       :current-page="currentPage"
       :per-page="perPage">
+
+      <template slot="repository" slot-scope="data">
+        <b-link :to="{ name: 'repository', params: { repository: data.item.repository.full_name } }">{{
+          data.item.repository.full_name
+        }}</b-link>
+      </template>
+
       <div slot="table-busy" class="text-center my-2">
         <b-spinner class="align-middle"></b-spinner>
         <strong>Loading...</strong>
@@ -59,12 +66,16 @@ export default {
      isBusy: false,
      fields: {
        id: {
-         label: 'Job',
+         label: 'Id',
          sortable: true
        },
-       data: {
-         label: 'Data',
-         sortable: false
+       event: {
+         label: 'Type',
+         sortable: true
+       },
+       repository: {
+         label: 'Repository',
+         sortable: true
        }
      }
    }

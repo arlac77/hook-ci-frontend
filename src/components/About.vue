@@ -9,7 +9,7 @@
     <div class="card-body">
     <ul class="list-group list-group-flush">
       <li class="list-group-item">Version {{ state.version }}</li>
-      <li class="list-group-item">Uptime {{ $duration(state.uptime, "seconds").humanize() }}</li>
+      <li class="list-group-item">{{ $duration(state.uptime, "seconds").humanize() }} up</li>
       <li class="list-group-item">Heap Total {{ state.memory.heapTotal | prettyBytes(2) }}</li>
       <li class="list-group-item">Heap Used {{ state.memory.heapUsed | prettyBytes(2) }}</li>
       <li class="list-group-item">RSS {{ state.memory.rss | prettyBytes(2) }}</li>
@@ -30,8 +30,13 @@ export default {
   },
   methods: {
     async refresh() {
-      const data = await fetch("api/state");
-      this.state = await data.json();
+      try {
+        const data = await fetch("api/state");
+        this.state = await data.json();
+      }
+      catch(e) {
+        this.state = { version: '-unknown-', uptime: 0, memory: { heapUsed: 0 } };
+      }
     }
   },
   mounted() {

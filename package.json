@@ -81,7 +81,7 @@
       }
     },
     "depends": {
-      "hook-ci": ">=1.6.0"
+      "hook-ci": ">=1.6.2"
     }
   },
   "dependencies": {

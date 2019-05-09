@@ -8,6 +8,7 @@ import About from "./components/About.vue";
 import Queues from "./components/Queues.vue";
 import Queue from "./components/Queue.vue";
 import Jobs from "./components/Jobs.vue";
+import Repository from "./components/Repository.vue";
 import Home from "./components/Home.vue";
 import "bootstrap/dist/css/bootstrap.css";
 import "bootstrap-vue/dist/bootstrap-vue.css";
@@ -17,7 +18,8 @@ const routes = [
   { name: "about", path: "/about", component: About },
   { name: "queues", path: "/queues", component: Queues },
   { name: "queue", path: "/queue/:queue", component: Queue },
-  { name: "jobs", path: "/queue/:queue/jobs", component: Jobs }
+  { name: "jobs", path: "/queue/:queue/jobs", component: Jobs },
+  { name: "repository", path: "/repository/:repository", component: Repository }
 ];
 
 const router = new VueRouter({
