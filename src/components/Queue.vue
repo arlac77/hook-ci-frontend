@@ -5,6 +5,7 @@
     <div>
       <b-button @click="pause">Pause</b-button>
       <b-button @click="resume">Resume</b-button>
+      <b-button @click="empty">Empty</b-button>
     </div>
   </div>
 </template>
@@ -28,6 +29,9 @@ export default {
       },
       async resume() {
         return fetch(`api/queue/${this.$route.params.queue}/resume`,{ method: 'POST'});
+      },
+      async empty() {
+        return fetch(`api/queue/${this.$route.params.queue}/empty`,{ method: 'POST'});
       }
     },
   watch: {

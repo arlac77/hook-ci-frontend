@@ -14,7 +14,7 @@
   ],
   "scripts": {
     "start": "rollup -c rollup.config.js -w",
-    "test": "ava",
+    "test": "echo disabled",
     "prepare": "rollup -c rollup.config.js",
     "package": "npm-pkgbuild pkgbuild pacman makepkg"
   },
@@ -81,7 +81,7 @@
       }
     },
     "depends": {
-      "hook-ci": ">=1.4.0"
+      "hook-ci": ">=1.6.0"
     }
   },
   "dependencies": {
