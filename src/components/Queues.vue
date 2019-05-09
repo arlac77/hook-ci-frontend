@@ -59,6 +59,10 @@ export default {
           label: "Waiting",
           sortable: true
         },
+        delayed: {
+          label: "Delayed",
+          sortable: true
+        },
         failed: {
           label: "Failed",
           sortable: true
@@ -69,10 +73,6 @@ export default {
         },
         completed: {
           label: "Completed",
-          sortable: true
-        },
-        delayed: {
-          label: "Delayed",
           sortable: true
         }
       }

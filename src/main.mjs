@@ -13,11 +13,11 @@ import "bootstrap/dist/css/bootstrap.css";
 import "bootstrap-vue/dist/bootstrap-vue.css";
 
 const routes = [
-  { path: "/", name: "home", component: Home },
-  { path: "/about", component: About },
-  { path: "/queues", name: "queues", component: Queues },
-  { path: "/queue/:queue", name: "queue", component: Queue },
-  { path: "/queue/:queue/jobs", name: "jobs", component: Jobs }
+  { name: "home", path: "/", component: Home },
+  { name: "about", path: "/about", component: About },
+  { name: "queues", path: "/queues", component: Queues },
+  { name: "queue", path: "/queue/:queue", component: Queue },
+  { name: "jobs", path: "/queue/:queue/jobs", component: Jobs }
 ];
 
 const router = new VueRouter({

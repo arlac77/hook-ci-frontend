@@ -27,5 +27,5 @@ export async function apiProxy() {
   );
 
   app.use("/", express.static("build/dist"));
-  return app.listen(3000);
+  return app.listen(3001);
 }

@@ -3,7 +3,7 @@ import { withPage, apiProxy } from './setup.mjs';
 
 test('page title should contain "hook-ci"', withPage, async (t, page) => {
 	await apiProxy();
-	const url = 'http://localhost:3000';
+	const url = 'http://localhost:3001';
 
 	await page.goto(url);
 	//console.log("TITLE",await page.title());
