@@ -1,6 +1,9 @@
 <template>
   <div class="view">
-    Queue {{name}} {{$route.params.queue}}
+    Queue {{$route.params.queue}}
+
+    <b-link :to="{ name: 'jobs', params: { queue: item.name } }">
+      Jobs</b-link>
 
     <div>
       <b-button @click="pause">Pause</b-button>
@@ -14,15 +17,15 @@
 export default {
   name: "Queue",
   props: {
-    name: {
-      type: String,
-      default: ""
+    item: {
+      type: Object,
+      default: {}
     }
   },
   methods: {
       async refresh() {
         const data = await fetch(`api/queue/${this.$route.params.queue}`);
-        this.items = await data.json();
+        this.item = await data.json();
       },
       async pause() {
         return fetch(`api/queue/${this.$route.params.queue}/pause`,{ method: 'POST'});

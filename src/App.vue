@@ -8,7 +8,6 @@
       <b-collapse id="nav-collapse" is-nav>
         <b-navbar-nav>
           <b-nav-item href="#/queues">Queues</b-nav-item>
-          <b-nav-item href="#/queue/request/jobs">Request Jobs</b-nav-item>
           <b-nav-item href="#/about">About</b-nav-item>
         </b-navbar-nav>
 
