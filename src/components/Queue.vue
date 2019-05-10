@@ -2,8 +2,7 @@
   <div class="view">
     Queue {{$route.params.queue}}
 
-    <b-link :to="{ name: 'jobs', params: { queue: item.name } }">
-      Jobs</b-link>
+    <b-link :to="{ name: 'jobs', params: { queue: item.name } }">Jobs</b-link>
 
     <div>
       <b-button @click="pause">Pause</b-button>

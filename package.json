@@ -87,6 +87,7 @@
   "dependencies": {
     "bootstrap": "^4.3.1",
     "bootstrap-vue": "^2.0.0-rc.19",
+    "connect-history-api-fallback": "^1.6.0",
     "vue": "^2.6.10",
     "vue-filter-pretty-bytes": "^0.1.2",
     "vue-moment-lib": "^1.2.2",

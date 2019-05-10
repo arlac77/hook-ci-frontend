@@ -5,9 +5,14 @@ import css from "rollup-plugin-css-only";
 import resolve from "rollup-plugin-node-resolve";
 import commonjs from "rollup-plugin-commonjs";
 import pkg from "./package.json";
+import history from "connect-history-api-fallback";
+import proxy from "http-proxy-middleware";
+import express from "express";
+import { create as browserSyncFactory } from "browser-sync";
 
 const isProduction = !process.env.ROLLUP_WATCH;
 const dist = "build/dist";
+const api = "/api";
 
 const globals = { vue: "Vue" };
 const external = Object.keys(pkg.dependencies);
@@ -58,25 +63,22 @@ if (isProduction) {
   process.env.NODE_ENV = "production";
 } else {
   function browsersync() {
-    const browserSync = require("browser-sync").create();
-    const express = require("express");
-    const proxy = require("http-proxy-middleware");
-
+    const browserSync = browserSyncFactory();
     const app = express();
 
     app.use(
-      "/api",
+      api,
       proxy({
         target: "https://mfelten.dynv6.net/services/ci/",
-        changeOrigin: true
-        //logLevel: "debug"
+        changeOrigin: true,
+        logLevel: "debug"
       })
     );
 
     browserSync.init({
       server: dist,
       watch: true,
-      middleware: [app]
+      middleware: [app,history()]
     });
   }
 

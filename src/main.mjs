@@ -4,6 +4,7 @@ import BootstrapVue from "bootstrap-vue";
 import VueMomentLib from "vue-moment-lib";
 import VueFilterPrettyBytes from "vue-filter-pretty-bytes";
 import App from "./App.vue";
+import NotFound from "./components/NotFound.vue";
 import About from "./components/About.vue";
 import Queues from "./components/Queues.vue";
 import Queue from "./components/Queue.vue";
@@ -13,17 +14,17 @@ import Home from "./components/Home.vue";
 import "bootstrap/dist/css/bootstrap.css";
 import "bootstrap-vue/dist/bootstrap-vue.css";
 
-const routes = [
-  { name: "home", path: "/", component: Home },
-  { name: "about", path: "/about", component: About },
-  { name: "queues", path: "/queues", component: Queues },
-  { name: "queue", path: "/queue/:queue", component: Queue },
-  { name: "jobs", path: "/queue/:queue/jobs", component: Jobs },
-  { name: "repository", path: "/repository/:repository", component: Repository }
-];
-
 const router = new VueRouter({
-  routes
+  mode: 'history',
+  routes: [
+    { path: '*', component: NotFound },
+    { name: "home", path: "/", component: Home },
+    { name: "about", path: "/about", component: About },
+    { name: "queues", path: "/queues", component: Queues },
+    { name: "queue", path: "/queue/:queue", component: Queue },
+    { name: "jobs", path: "/queue/:queue/jobs", component: Jobs },
+    { name: "repository", path: "/repository/:repository", component: Repository }
+  ]
 });
 
 Vue.use(VueRouter);

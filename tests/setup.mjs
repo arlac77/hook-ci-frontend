@@ -1,9 +1,10 @@
 import puppeteer from "puppeteer";
 import express from "express";
 import proxy from "http-proxy-middleware";
+import history from "connect-history-api-fallback";
 
 export async function withPage(t, run) {
-  const browser = await puppeteer.launch( /*{ headless: false, slowMo: 5000 }*/);
+  const browser = await puppeteer.launch(/*{ headless: false, slowMo: 5000 }*/);
   const page = await browser.newPage();
   try {
     await run(t, page);
@@ -15,6 +16,8 @@ export async function withPage(t, run) {
 
 export async function apiProxy() {
   const app = express();
+
+  app.use(history());
 
   app.use(
     "/api",
