@@ -15,7 +15,8 @@ import "bootstrap/dist/css/bootstrap.css";
 import "bootstrap-vue/dist/bootstrap-vue.css";
 
 const router = new VueRouter({
-  mode: 'history',
+  //mode: 'history',
+  //base: '/services/ci',
   routes: [
     { path: '*', component: NotFound },
     { name: "home", path: "/", component: Home },

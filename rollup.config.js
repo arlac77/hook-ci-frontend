@@ -12,6 +12,7 @@ import { create as browserSyncFactory } from "browser-sync";
 
 const isProduction = !process.env.ROLLUP_WATCH;
 const dist = "build/dist";
+const base = "/services/ci";
 const api = "/api";
 
 const globals = { vue: "Vue" };
