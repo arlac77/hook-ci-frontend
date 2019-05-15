@@ -8,9 +8,10 @@
       :fields="fields"
     >
       <template slot="name" slot-scope="data">
-        <b-link :to="{ name: 'repository', params: { repository: data.item.name } }">{{
-          data.item.name
-        }}</b-link>
+        <b-link
+          :to="{ name: 'repository', params: { repository: data.item.name } }"
+          >{{ data.item.name }}</b-link
+        >
       </template>
 
       <div slot="table-busy" class="text-center my-2">
@@ -34,7 +35,7 @@ export default {
     async refresh() {
       this.isBusy = true;
       const data = await fetch("api/repositories?pattern=arlac77/*");
-      const items = (await data.json()).map(name => { return {name}; });
+      const items = await data.json();
       this.items.length = 0;
       this.items.push(...items);
       this.isBusy = false;
