@@ -4,11 +4,11 @@
 
     <b-link :to="{ name: 'jobs', params: { queue: item.name } }">Jobs</b-link>
 
-    <div>
+    <b-button-group>
       <b-button @click="pause">Pause</b-button>
       <b-button @click="resume">Resume</b-button>
-      <b-button @click="empty">Empty</b-button>
-    </div>
+      <b-button variant="warning" @click="empty">Empty</b-button>
+    </b-button-group>
   </div>
 </template>
 

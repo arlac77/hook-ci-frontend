@@ -51,6 +51,10 @@ export default {
         name: {
           label: "Repository",
           sortable: true
+        },
+        description: {
+          label: "Description",
+          sortable: true
         }
       }
     };
