@@ -31,13 +31,13 @@
           {{ data.item.processedOn | moment().format("MMMM Do YYYY, h:mm:ss a") }}
       </template>
 
-      <div slot="table-busy" class="text-center my-2">
+      <div slot="table-busy" class="text-center">
         <b-spinner class="align-middle"></b-spinner>
         <strong>Loading...</strong>
       </div>
     </b-table>
     <b-row>
-      <b-col md="6" class="my-1">
+      <b-col md="6">
         <b-pagination
           v-model="currentPage"
           :total-rows="totalRows"
@@ -96,6 +96,10 @@ export default {
         },
         repository: {
           label: "Repository",
+          sortable: true
+        },
+        branch: {
+          label: "Branch",
           sortable: true
         }
       }
