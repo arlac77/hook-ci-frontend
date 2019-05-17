@@ -14,7 +14,7 @@
         >
       </template>
 
-      <div slot="table-busy" class="text-center my-2">
+      <div slot="table-busy" class="text-center">
         <b-spinner class="align-middle"></b-spinner>
         <strong>Loading...</strong>
       </div>

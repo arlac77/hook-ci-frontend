@@ -12,7 +12,7 @@
       <b-link
         :to="{
           name: 'job',
-          params: { queue: 'incoming', job: data.item.id }
+          params: { queue: $route.params.queue, job: data.item.id }
         }"
         >{{ data.item.id }}</b-link>
     </template>

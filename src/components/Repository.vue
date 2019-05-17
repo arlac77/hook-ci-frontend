@@ -1,7 +1,9 @@
 <template>
-  <div class="view">
-    Repository {{$route.params.repository}}
-  </div>
+  <b-card v-bind:title="name">
+    <b-card-body>
+        Repository {{$route.params.repository}}
+    </b-card-body>
+  </b-card>
 </template>
 
 <script>

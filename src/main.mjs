@@ -6,7 +6,7 @@ import VueMomentLib from "vue-moment-lib";
 import VueFilterPrettyBytes from "vue-filter-pretty-bytes";
 import App from "./App.vue";
 import NotFound from "./components/NotFound.vue";
-import About from "./components/About.vue";
+import State from "./components/State.vue";
 import Queues from "./components/Queues.vue";
 import Queue from "./components/Queue.vue";
 import Jobs from "./components/Jobs.vue";
@@ -24,7 +24,7 @@ const router = new VueRouter({
   routes: [
     { path: '*', component: NotFound },
     { name: "home", path: "/", component: Home },
-    { name: "about", path: "/about", component: About },
+    { name: "state", path: "/state", component: State },
     { name: "queues", path: "/queues", component: Queues },
     { name: "queue", path: "/queue/:queue", component: Queue },
     { name: "jobs", path: "/queue/:queue/jobs", component: Jobs },

@@ -22,7 +22,7 @@
 
 <script>
 export default {
-  name: "About",
+  name: "State",
   props: {
     state: {
       type: Array,
