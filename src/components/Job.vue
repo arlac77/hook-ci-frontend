@@ -1,24 +1,26 @@
 <template>
-  <div id="job" class="card" style="width: 24rem;">
-    <div class="card-header">
+  <b-card id="job" v-bind:title="$route.params.job" v-bind:sub-title="state">
+    <b-card-body>
       <b-link
         :to="{
           name: 'jobs',
           params: { queue: $route.params.queue }
-        }">{{ $route.params.queue }}</b-link>
-       {{$route.params.job}}
-    </div>
-    <div class="card-body">
-      <ul class="list-group list-group-flush">
-        <li class="list-group-item">
-          processedOn {{ processedOn | moment().format("MMMM Do YYYY, h:mm:ss a") }}
-        </li>
-        <li class="list-group-item">
-         {{ state }}
-        </li>
-      </ul>
-    </div>
-  </div>
+        }" class="card-link">{{ $route.params.queue }}</b-link>
+
+        <b-link
+          :to="{
+            name: 'jobLog',
+            params: { queue: $route.params.queue, job: $route.params.job }
+          }" class="card-link">Log</b-link>
+
+      <b-list-group flush>
+        <b-list-group-item>processedOn {{ processedOn | moment().format("MMMM Do YYYY, h:mm:ss a") }}</b-list-group-item>
+        <b-list-group-item>finishedOn {{ finishedOn | moment().format("MMMM Do YYYY, h:mm:ss a") }}</b-list-group-item>
+        <b-list-group-item>State {{ state }}</b-list-group-item>
+        <b-list-group-item># {{ attemptsMade }}</b-list-group-item>
+      </b-list-group>
+    </b-card-body>
+  </b-card>
 </template>
 
 <script>
