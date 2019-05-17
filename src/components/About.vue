@@ -8,6 +8,7 @@
 
     <div v-for="node in state" class="card-body">
       <ul class="list-group list-group-flush">
+        <li class="list-group-item">Name {{ node.name }}</li>
         <li class="list-group-item">Version {{ node.version }}</li>
         <li class="list-group-item">Platform {{ node.platform }}</li>
         <li class="list-group-item">
@@ -37,6 +38,7 @@ export default {
     state: {
       type: Array,
       default: [{
+        name: "not connected",
         version: "unknown",
         platform: "unknown",
         uptime: 0,
@@ -51,6 +53,7 @@ export default {
         this.state = await data.json();
       } catch (e) {
         this.state = [{
+          name: "not connected",
           version: "unknown",
           platform: "unknown",
           uptime: 0,
