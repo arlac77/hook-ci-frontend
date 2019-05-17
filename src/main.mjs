@@ -1,4 +1,5 @@
 import Vue from "vue";
+import Vuex from 'vuex';
 import VueRouter from "vue-router";
 import BootstrapVue from "bootstrap-vue";
 import VueMomentLib from "vue-moment-lib";
@@ -9,6 +10,7 @@ import About from "./components/About.vue";
 import Queues from "./components/Queues.vue";
 import Queue from "./components/Queue.vue";
 import Jobs from "./components/Jobs.vue";
+import Job from "./components/Job.vue";
 import Repository from "./components/Repository.vue";
 import Repositories from "./components/Repositories.vue";
 import Home from "./components/Home.vue";
@@ -25,10 +27,18 @@ const router = new VueRouter({
     { name: "queues", path: "/queues", component: Queues },
     { name: "queue", path: "/queue/:queue", component: Queue },
     { name: "jobs", path: "/queue/:queue/jobs", component: Jobs },
+    { name: "job", path: "/queue/:queue/job/:job", component: Job },
     { name: "repositories", path: "/repositories", component: Repositories },
     { name: "repository", path: "/repository/:repository", component: Repository }
   ]
 });
+
+/*
+const store = new Vuex.Store({
+  modules: {
+  }
+});
+*/
 
 Vue.use(VueRouter);
 Vue.use(BootstrapVue);
@@ -37,5 +47,6 @@ Vue.use(VueFilterPrettyBytes);
 
 export const app = new Vue({
   router,
+//  store,
   render: h => h(App)
 }).$mount("app");

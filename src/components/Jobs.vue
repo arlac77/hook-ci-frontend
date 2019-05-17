@@ -8,6 +8,15 @@
       :current-page="currentPage"
       :per-page="perPage"
     >
+    <template slot="id" slot-scope="data">
+      <b-link
+        :to="{
+          name: 'job',
+          params: { queue: 'incoming', job: data.item.id }
+        }"
+        >{{ data.item.id }}</b-link>
+    </template>
+
       <template slot="repository" slot-scope="data">
         <b-link
           :to="{
@@ -16,6 +25,10 @@
           }"
           >{{ data.item.repository.full_name }}</b-link
         >
+      </template>
+
+      <template slot="processedOn" slot-scope="data">
+          {{ data.item.processedOn | moment().format("MMMM Do YYYY, h:mm:ss a") }}
       </template>
 
       <div slot="table-busy" class="text-center my-2">
@@ -71,6 +84,10 @@ export default {
       fields: {
         id: {
           label: "Id",
+          sortable: true
+        },
+        processedOn: {
+          label: "Processed On",
           sortable: true
         },
         event: {
