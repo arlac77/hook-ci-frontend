@@ -11,6 +11,7 @@ import Queues from "./components/Queues.vue";
 import Queue from "./components/Queue.vue";
 import Jobs from "./components/Jobs.vue";
 import Job from "./components/Job.vue";
+import JobLog from "./components/JobLog.vue";
 import Repository from "./components/Repository.vue";
 import Repositories from "./components/Repositories.vue";
 import Home from "./components/Home.vue";
@@ -28,6 +29,7 @@ const router = new VueRouter({
     { name: "queue", path: "/queue/:queue", component: Queue },
     { name: "jobs", path: "/queue/:queue/jobs", component: Jobs },
     { name: "job", path: "/queue/:queue/job/:job", component: Job },
+    { name: "jobLog", path: "/queue/:queue/job/:job/log", component: JobLog },
     { name: "repositories", path: "/repositories", component: Repositories },
     { name: "repository", path: "/repository/:repository", component: Repository }
   ]

@@ -1,34 +1,23 @@
 <style></style>
 
 <template>
-  <div id="about" class="card" style="width: 24rem;">
-    <div class="card-header">
-      Hook-CI
-    </div>
-
-    <div v-for="node in state" class="card-body">
-      <ul class="list-group list-group-flush">
-        <li class="list-group-item">Name {{ node.name }}</li>
-        <li class="list-group-item">Version {{ node.version }}</li>
-        <li class="list-group-item">Platform {{ node.platform }}</li>
-        <li class="list-group-item">
-          {{ $duration(node.uptime, "seconds").humanize() }} up
-        </li>
-        <li class="list-group-item">
-          Heap Total {{ node.memory.heapTotal | prettyBytes(2) }}
-        </li>
-        <li class="list-group-item">
-          Heap Used {{ node.memory.heapUsed | prettyBytes(2) }}
-        </li>
-        <li class="list-group-item">
-          RSS {{ node.memory.rss | prettyBytes(2) }}
-        </li>
-        <li class="list-group-item">
-          external {{ node.memory.external | prettyBytes(2) }}
-        </li>
-      </ul>
-    </div>
-  </div>
+  <div>
+  <b-card v-for="node in state" v-bind:title="node.name" v-bind:sub-title="node.version" id="about" style="width: 24rem;">
+    <b-card-body>
+      <b-list-group flush>
+        <b-list-group-item>RSS {{ node.memory.rss | prettyBytes(2) }}</b-list-group-item>
+        <b-list-group-item>External {{ node.memory.external | prettyBytes(2) }}</b-list-group-item>
+        <b-list-group-item>Heap Used {{ node.memory.heapUsed | prettyBytes(2) }}</b-list-group-item>
+        <b-list-group-item>Heap Total {{ node.memory.heapTotal | prettyBytes(2) }}</b-list-group-item>
+      </b-list-group>
+      <b-list-group flush>
+        <b-list-group-item>Platform {{ node.platform }}</b-list-group-item>
+        <b-list-group-item>{{ $duration(node.uptime, "seconds").humanize() }} up</b-list-group-item>
+      </b-list-group>
+    <b-button href="#" variant="primary">Restart</b-button>
+   </b-card-body>
+  </b-card>
+</div>
 </template>
 
 <script>
