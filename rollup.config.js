@@ -25,6 +25,7 @@ const config = {
   output: {
     //globals,
     file: `${dist}/bundle.js`,
+    sourcemap: true,
     format: "esm"
   },
   /*
@@ -79,13 +80,13 @@ if (isProduction) {
     browserSync.init({
       server: dist,
       watch: true,
-      middleware: [app,history()]
+      middleware: [app, history()]
     });
   }
 
   setTimeout(() => {
     browsersync();
-  }, 100);
+  }, 500);
 }
 
 export default config;
