@@ -35,6 +35,7 @@ const router = new VueRouter({
   ]
 });
 
+
 /*
 const store = new Vuex.Store({
   modules: {
@@ -42,6 +43,7 @@ const store = new Vuex.Store({
 });
 */
 
+Vue.use(Vuex);
 Vue.use(VueRouter);
 Vue.use(BootstrapVue);
 Vue.use(VueMomentLib);

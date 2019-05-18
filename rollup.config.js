@@ -4,6 +4,7 @@ import vue from "rollup-plugin-vue";
 import css from "rollup-plugin-css-only";
 import resolve from "rollup-plugin-node-resolve";
 import commonjs from "rollup-plugin-commonjs";
+import nodeGlobals from 'rollup-plugin-node-globals';
 import pkg from "./package.json";
 import history from "connect-history-api-fallback";
 import proxy from "http-proxy-middleware";
@@ -14,6 +15,7 @@ const isProduction = !process.env.ROLLUP_WATCH;
 const dist = "build/dist";
 const base = "/services/ci";
 const api = "/api";
+const proxyTarget = "https://mfelten.dynv6.net/services/ci/";
 
 const globals = { vue: "Vue" };
 const external = Object.keys(pkg.dependencies);
@@ -25,7 +27,7 @@ const config = {
   output: {
     //globals,
     file: `${dist}/bundle.js`,
-    sourcemap: true,
+    sourcemap: !isProduction,
     format: "esm"
   },
   /*
@@ -42,6 +44,7 @@ const config = {
   plugins: [
     resolve(),
     commonjs(),
+    nodeGlobals(),
     css({ output: `${dist}/bundle.css` }),
     vue({
       template: {
@@ -56,7 +59,7 @@ const config = {
       verbose: true
     }),
     replace({
-      "process.env.NODE_ENV": JSON.stringify("production")
+      'process.env.NODE_ENV': JSON.stringify( 'production' )
     })
   ]
 };
@@ -71,7 +74,7 @@ if (isProduction) {
     app.use(
       api,
       proxy({
-        target: "https://mfelten.dynv6.net/services/ci/",
+        target: proxyTarget,
         changeOrigin: true,
         logLevel: "debug"
       })
