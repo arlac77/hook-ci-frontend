@@ -5,20 +5,40 @@
         :to="{
           name: 'jobs',
           params: { queue: $route.params.queue }
-        }" class="card-link">{{ $route.params.queue }}</b-link>
+        }"
+        class="card-link"
+        >{{ $route.params.queue }}</b-link
+      >
 
-        <b-link
-          :to="{
-            name: 'jobLog',
-            params: { queue: $route.params.queue, job: $route.params.job }
-          }" class="card-link">Log</b-link>
+      <b-link
+        :to="{
+          name: 'jobLog',
+          params: { queue: $route.params.queue, job: $route.params.job }
+        }"
+        class="card-link"
+        >Log</b-link
+      >
 
       <b-list-group flush>
-        <b-list-group-item>processedOn {{ processedOn | moment().format("MMMM Do YYYY, h:mm:ss a") }}</b-list-group-item>
-        <b-list-group-item>finishedOn {{ finishedOn | moment().format("MMMM Do YYYY, h:mm:ss a") }}</b-list-group-item>
+        <b-list-group-item
+          >processedOn
+          {{
+            processedOn | moment().format("MMMM Do YYYY, h:mm:ss a")
+          }}</b-list-group-item
+        >
+        <b-list-group-item
+          >finishedOn
+          {{
+            finishedOn | moment().format("MMMM Do YYYY, h:mm:ss a")
+          }}</b-list-group-item
+        >
         <b-list-group-item>State {{ state }}</b-list-group-item>
         <b-list-group-item># {{ attemptsMade }}</b-list-group-item>
       </b-list-group>
+
+      <b-button-group>
+        <b-button @click="cancel">Cancel</b-button>
+      </b-button-group>
     </b-card-body>
   </b-card>
 </template>
@@ -33,13 +53,23 @@ export default {
     }
   },
   methods: {
-      async refresh() {
-        const data = await fetch(`api/queue/${this.$route.params.queue}/job/${this.$route.params.job}`);
-        this.item = await data.json();
-      },
+    async refresh() {
+      const data = await fetch(
+        `api/queue/${this.$route.params.queue}/job/${this.$route.params.job}`
+      );
+      this.item = await data.json();
     },
-  watch: {
-    '$route' (from, to) {
+    async cancel() {
+      return fetch(
+        `api/queue/${this.$route.params.queue}/job/${
+          this.$route.params.job
+        }/cancel`,
+        { method: "POST" }
+      );
+    }
+  },
+  watch: {
+    $route(from, to) {
       this.refresh();
     }
   },
