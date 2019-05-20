@@ -6,9 +6,7 @@
 </style>
 
 <template>
-  <div id="log" class="log">
-    {{lines}}
-  </div>
+  <div id="log" class="log">{{lines}}</div>
 </template>
 
 <script>
