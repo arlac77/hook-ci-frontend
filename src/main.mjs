@@ -4,7 +4,6 @@ import Router from "vue-router";
 import BootstrapVue from "bootstrap-vue";
 import VueMomentLib from "vue-moment-lib";
 import VueFilterPrettyBytes from "vue-filter-pretty-bytes";
-import App from "./App.vue";
 import NotFound from "./components/NotFound.vue";
 import State from "./components/State.vue";
 import Queues from "./components/Queues.vue";
@@ -17,6 +16,9 @@ import Repositories from "./components/Repositories.vue";
 import Home from "./components/Home.vue";
 import Profile from "./components/Profile.vue";
 import Callback from "./components/Callback.vue";
+import App from "./App.vue";
+
+
 import "bootstrap/dist/css/bootstrap.css";
 import "bootstrap-vue/dist/bootstrap-vue.css";
 
