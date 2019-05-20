@@ -54,9 +54,8 @@ const config = {
       css: false
     }),
     copy({
-      targets: ["src/index.html"],
-      outputFolder: dist,
-      verbose: true
+      targets: ["public/index.html","public/favicon.ico"],
+      outputFolder: dist
     }),
     replace({
       'process.env.NODE_ENV': JSON.stringify( 'production' )
