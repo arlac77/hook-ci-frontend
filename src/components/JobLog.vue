@@ -1,5 +1,12 @@
+<style>
+.log {
+  white-space: pre;
+  font-family: courier, "courier new", monospace;
+}
+</style>
+
 <template>
-  <div id="log" style="white-space: pre">
+  <div id="log" class="log">
     {{lines}}
   </div>
 </template>
