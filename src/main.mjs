@@ -57,6 +57,6 @@ Vue.use(VueFilterPrettyBytes);
 
 export const app = new Vue({
   router,
-//  store,
+  //  store,
   render: h => h(App)
 }).$mount("app");

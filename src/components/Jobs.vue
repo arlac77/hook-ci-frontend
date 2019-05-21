@@ -8,14 +8,14 @@
       :current-page="currentPage"
       :per-page="perPage"
     >
-    <template slot="id" slot-scope="data">
-      <b-link
-        :to="{
+      <template slot="id" slot-scope="data">
+        <b-link
+          :to="{
           name: 'job',
           params: { queue: $route.params.queue, job: data.item.id }
         }"
         >{{ data.item.id }}</b-link>
-    </template>
+      </template>
 
       <template slot="repository" slot-scope="data">
         <b-link
@@ -23,13 +23,13 @@
             name: 'repository',
             params: { repository: data.item.repository.full_name }
           }"
-          >{{ data.item.repository.full_name }}</b-link
-        >
+        >{{ data.item.repository.full_name }}</b-link>
       </template>
 
-      <template slot="processedOn" slot-scope="data">
-          {{ data.item.processedOn | moment().format("MMMM Do YYYY, h:mm:ss a") }}
-      </template>
+      <template
+        slot="processedOn"
+        slot-scope="data"
+      >{{ data.item.processedOn | moment().format("MMMM Do YYYY, h:mm:ss a") }}</template>
 
       <div slot="table-busy" class="text-center">
         <b-spinner class="align-middle"></b-spinner>
@@ -42,7 +42,6 @@
           v-model="currentPage"
           :total-rows="totalRows"
           :per-page="perPage"
-          class="my-0"
         ></b-pagination>
       </b-col>
     </b-row>

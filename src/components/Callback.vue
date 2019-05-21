@@ -1,7 +1,5 @@
 <template>
-  <div class="spinner">
-    loading...
-  </div>
+  <div class="spinner">loading...</div>
 </template>
 
 <script>

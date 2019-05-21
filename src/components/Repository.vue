@@ -1,8 +1,6 @@
 <template>
   <b-card v-bind:title="name">
-    <b-card-body>
-        Repository {{$route.params.repository}}
-    </b-card-body>
+    <b-card-body>Repository {{$route.params.repository}}</b-card-body>
   </b-card>
 </template>
 
@@ -14,6 +12,6 @@ export default {
       type: Object,
       default: {}
     }
-  },
+  }
 };
 </script>

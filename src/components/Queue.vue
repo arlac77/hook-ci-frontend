@@ -1,15 +1,17 @@
 <template>
-  <div class="view">
-    Queue {{$route.params.queue}}
+  <b-card-group>
+    <b-card id="queue" v-bind:title="$route.params.queue" v-bind:sub-title="Queue">
+      <b-card-body>
+        <b-link :to="{ name: 'jobs', params: { queue: item.name } }">Jobs</b-link>
+      </b-card-body>
 
-    <b-link :to="{ name: 'jobs', params: { queue: item.name } }">Jobs</b-link>
-
-    <b-button-group>
-      <b-button @click="pause">Pause</b-button>
-      <b-button @click="resume">Resume</b-button>
-      <b-button variant="warning" @click="empty">Empty</b-button>
-    </b-button-group>
-  </div>
+      <b-button-group>
+        <b-button @click="pause">Pause</b-button>
+        <b-button @click="resume">Resume</b-button>
+        <b-button variant="warning" @click="empty">Empty</b-button>
+      </b-button-group>
+    </b-card>
+  </b-card-group>
 </template>
 
 <script>
@@ -22,22 +24,28 @@ export default {
     }
   },
   methods: {
-      async refresh() {
-        const data = await fetch(`api/queue/${this.$route.params.queue}`);
-        this.item = await data.json();
-      },
-      async pause() {
-        return fetch(`api/queue/${this.$route.params.queue}/pause`,{ method: 'POST'});
-      },
-      async resume() {
-        return fetch(`api/queue/${this.$route.params.queue}/resume`,{ method: 'POST'});
-      },
-      async empty() {
-        return fetch(`api/queue/${this.$route.params.queue}/empty`,{ method: 'POST'});
-      }
+    async refresh() {
+      const data = await fetch(`api/queue/${this.$route.params.queue}`);
+      this.item = await data.json();
     },
-  watch: {
-    '$route' (from, to) {
+    async pause() {
+      return fetch(`api/queue/${this.$route.params.queue}/pause`, {
+        method: "POST"
+      });
+    },
+    async resume() {
+      return fetch(`api/queue/${this.$route.params.queue}/resume`, {
+        method: "POST"
+      });
+    },
+    async empty() {
+      return fetch(`api/queue/${this.$route.params.queue}/empty`, {
+        method: "POST"
+      });
+    }
+  },
+  watch: {
+    $route(from, to) {
       this.refresh();
     }
   },

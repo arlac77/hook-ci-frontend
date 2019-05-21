@@ -21,8 +21,7 @@ export default {
   async created() {
     try {
       await this.$auth.renewTokens();
-    } catch {
-    }
+    } catch {}
   }
 };
 </script>

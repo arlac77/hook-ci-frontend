@@ -5,13 +5,11 @@
       :primary-key="0"
       :busy="isBusy"
       :items="items"
-      :fields="fields"
-    >
+      :fields="fields">
       <template slot="name" slot-scope="data">
         <b-link
           :to="{ name: 'repository', params: { repository: data.item.name } }"
-          >{{ data.item.name }}</b-link
-        >
+        >{{ data.item.name }}</b-link>
       </template>
 
       <div slot="table-busy" class="text-center">

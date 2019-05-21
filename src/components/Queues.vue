@@ -8,12 +8,14 @@
       :fields="fields"
     >
       <template slot="name" slot-scope="data">
-        <b-link :to="{ name: 'queue', params: { queue: data.item.name } }">{{
+        <b-link :to="{ name: 'queue', params: { queue: data.item.name } }">
+          {{
           data.item.name
-        }}</b-link>
+          }}
+        </b-link>
       </template>
 
-      <div slot="table-busy" class="text-center my-2">
+      <div slot="table-busy" class="text-center">
         <b-spinner class="align-middle"></b-spinner>
         <strong>Loading...</strong>
       </div>

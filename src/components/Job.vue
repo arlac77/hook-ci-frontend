@@ -6,40 +6,40 @@
           name: 'jobs',
           params: { queue: $route.params.queue }
         }"
-        class="card-link">
-        {{ $route.params.queue }}
-      </b-link>
+        class="card-link"
+      >{{ $route.params.queue }}</b-link>
 
       <b-link
         :to="{
           name: 'jobLog',
           params: { queue: $route.params.queue, job: $route.params.job }
         }"
-        class="card-link">
-        Log
-      </b-link>
+        class="card-link"
+      >Log</b-link>
 
       <b-list-group flush>
         <b-list-group-item>
           processedOn
           {{
-            processedOn | moment().format("MMMM Do YYYY, h:mm:ss a")
-          }}</b-list-group-item>
+          processedOn | moment().format("MMMM Do YYYY, h:mm:ss a")
+          }}
+        </b-list-group-item>
         <b-list-group-item>
           finishedOn
           {{
-            finishedOn | moment().format("MMMM Do YYYY, h:mm:ss a")
-          }}</b-list-group-item>
+          finishedOn | moment().format("MMMM Do YYYY, h:mm:ss a")
+          }}
+        </b-list-group-item>
         <b-list-group-item>State {{ state }}</b-list-group-item>
         <b-list-group-item># {{ attemptsMade }}</b-list-group-item>
       </b-list-group>
-
-      <b-button-group>
-        <b-button @click="cancel">Cancel</b-button>
-      </b-button-group>
     </b-card-body>
+    <b-button-group>
+      <b-button @click="cancel">Cancel</b-button>
+    </b-button-group>
+
     <div class="overflow-auto">
-    <b-pagination-nav :link-gen="linkGen" :number-of-pages="jobs" use-router></b-pagination-nav>
+      <b-pagination-nav :link-gen="linkGen" :number-of-pages="jobs" use-router></b-pagination-nav>
     </div>
   </b-card>
 </template>
@@ -55,10 +55,10 @@ export default {
   },
   data() {
     // TODO find # of jobs
-  return {
-    jobs: 1000
-  }
-},
+    return {
+      jobs: 1000
+    };
+  },
 
   methods: {
     async refresh() {
@@ -69,7 +69,7 @@ export default {
     },
     linkGen(pageNum) {
       return {
-        name: 'job',
+        name: "job",
         params: { job: pageNum }
       };
     },
