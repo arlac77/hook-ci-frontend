@@ -23,7 +23,7 @@ export default {
       const data = await fetch(
         `api/queue/${this.$route.params.queue}/job/${
           this.$route.params.job
-        }/log?from=0&to=100`
+        }/log?start=0&end=10000`
       );
       const json = await data.json();
       this.lines = json.logs.join("\n");
