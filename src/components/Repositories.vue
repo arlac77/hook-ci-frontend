@@ -5,7 +5,8 @@
       :primary-key="0"
       :busy="isBusy"
       :items="items"
-      :fields="fields">
+      :fields="fields"
+    >
       <template slot="name" slot-scope="data">
         <b-link
           :to="{ name: 'repository', params: { repository: data.item.name } }"
@@ -37,6 +38,17 @@ export default {
       this.items.length = 0;
       this.items.push(...items);
       this.isBusy = false;
+    },
+    async build() {
+      await fetch("api/queue/incoming/add", {
+        method: "POST",
+        body: JSON.stringify({
+          ref: "refs/heads/master",
+          repository: {
+            url: "https://github.com/arlac77/npm-template-sync-github-hook"
+          }
+        })
+      });
     }
   },
   mounted() {
