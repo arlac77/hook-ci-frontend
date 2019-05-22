@@ -47,7 +47,7 @@ export default {
   methods: {
     async refresh() {
       try {
-        const data = await fetch("api/state");
+        const data = await fetch("api/nodes/state");
         this.state = await data.json();
       } catch (e) {
         this.state = [
@@ -62,7 +62,8 @@ export default {
       }
     },
     async restart() {
-      return fetch(`api/node/restart`, {
+      const name = 'xxx';
+      return fetch(`api/nodes/${name}/restart`, {
         method: "POST"
       });
     }

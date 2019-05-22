@@ -44,8 +44,6 @@ const router = new Router({
 
 /*
 const store = new Vuex.Store({
-  modules: {
-  }
 });
 */
 
