@@ -89,10 +89,6 @@ export default {
           label: "Processed On",
           sortable: true
         },
-        event: {
-          label: "Type",
-          sortable: true
-        },
         repository: {
           label: "Repository",
           sortable: true
