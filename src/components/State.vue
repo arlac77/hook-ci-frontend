@@ -73,6 +73,20 @@ export default {
     this.interval = setInterval(() => {
       this.refresh();
     }, 5000);
+    
+    const socket = new WebSocket('wss://mfelten.dynv6.net/services/ci/api/');
+
+    socket.addEventListener('error', event => {
+      console.log('ERROR', event);
+    });
+    
+    socket.addEventListener('open', event => {
+      socket.send('Hello Server!');
+    });
+
+    socket.addEventListener('message', event => {
+      console.log('Message from server ', event.data);
+    });
   },
   beforeDestroy() {
     clearInterval(this.interval);
