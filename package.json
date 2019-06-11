@@ -37,14 +37,14 @@
     "http-proxy-middleware": "^0.19.1",
     "npm-pkgbuild": "^6.4.6",
     "puppeteer": "^1.17.0",
-    "rollup": "^1.15.0",
+    "rollup": "^1.15.1",
     "rollup-plugin-commonjs": "^10.0.0",
     "rollup-plugin-copy": "^3.0.0",
     "rollup-plugin-css-only": "^1.0.0",
     "rollup-plugin-node-resolve": "^5.0.1",
     "rollup-plugin-replace": "^2.2.0",
     "rollup-plugin-vue": "^5.0.0",
-    "semantic-release": "^15.13.14",
+    "semantic-release": "^15.13.16",
     "vue-template-compiler": "^2.6.10"
   },
   "repository": {
