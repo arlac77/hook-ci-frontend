@@ -69,7 +69,6 @@
   },
   "ava": {
     "files": [
-      "tests/*-test.js",
       "tests/*-test.mjs"
     ],
     "require": [
@@ -78,13 +77,12 @@
     "babel": false,
     "compileEnhancements": false,
     "extensions": [
-      "js",
       "mjs"
     ]
   },
   "template": {
     "repository": {
-      "url": "https://github.com/arlac77/npm-package-template-vue.git"
+      "url": "https://github.com/arlac77/npm-package-template-vue-app.git"
     }
   },
   "pacman": {
@@ -92,8 +90,7 @@
     "installdir": "/services/hook-ci/frontend",
     "content": {
       "${installdir}/": {
-        "base": "build/dist",
-        "pattern": "**/*"
+        "base": "build/dist"
       }
     },
     "depends": {
