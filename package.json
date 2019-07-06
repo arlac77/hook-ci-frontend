@@ -85,16 +85,26 @@
       "url": "https://github.com/arlac77/npm-package-template-vue-app.git"
     }
   },
+  "base": "/services/ci",
+  "api": "/services/ci/api",
+  "proxyTarget": "https://mfelten.dynv6.net",
   "pacman": {
     "groups": "ci",
+    "install": "pacman/install.sh",
     "installdir": "/services/hook-ci/frontend",
+    "properties": {
+      "urlPrefix": "/services/ci"
+    },
     "content": {
       "${installdir}/": {
         "base": "build/dist"
-      }
+      },
+      "/etc/nginx/config.d/${name}.conf": "pacman/nginx.conf"
     },
     "depends": {
-      "hook-ci": ">=1.15.13"
+      "systemd": ">=242.32",
+      "nginx-mainline": ">=1.17.1",
+      "hook-ci": ">=1.36.1"
     }
   }
 }
