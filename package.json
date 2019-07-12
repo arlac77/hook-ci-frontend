@@ -36,15 +36,15 @@
     "http-proxy-middleware": "^0.19.1",
     "npm-pkgbuild": "^6.6.0",
     "puppeteer": "^1.18.1",
-    "rollup": "^1.16.6",
+    "rollup": "^1.16.7",
     "rollup-plugin-commonjs": "^10.0.1",
     "rollup-plugin-copy": "^3.0.0",
     "rollup-plugin-css-only": "^1.0.0",
+    "rollup-plugin-json": "^4.0.0",
     "rollup-plugin-node-globals": "^1.4.0",
     "rollup-plugin-node-resolve": "^5.2.0",
     "rollup-plugin-replace": "^2.2.0",
     "rollup-plugin-vue": "^5.0.1",
-    "rollup-plugin-json": "^4.0.0",
     "semantic-release": "^15.13.19",
     "vue-template-compiler": "^2.6.10"
   },
@@ -56,6 +56,11 @@
     "url": "https://github.com/arlac77/hook-ci-frontend/issues"
   },
   "homepage": "https://github.com/arlac77/hook-ci-frontend#readme",
+  "config": {
+    "urlPrefix": "/services/ci",
+    "api": "/api",
+    "proxyTarget": "https://mfelten.dynv6.net/services/ci"
+  },
   "release": {
     "plugins": [
       "@semantic-release/commit-analyzer",
@@ -85,11 +90,6 @@
     "repository": {
       "url": "https://github.com/arlac77/npm-package-template-vue-app.git"
     }
-  },
-  "config": {
-    "urlPrefix": "/services/ci",
-    "api": "/api",
-    "proxyTarget": "https://mfelten.dynv6.net/services/ci"
   },
   "pacman": {
     "groups": "ci",
