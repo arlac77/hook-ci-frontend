@@ -9,6 +9,7 @@
         <b-nav-item :to="{ name: 'repositories' }">Repositories</b-nav-item>
         <b-nav-item :to="{ name: 'queues' }">Queues</b-nav-item>
         <b-nav-item :to="{ name: 'state' }">State</b-nav-item>
+        <b-nav-item :to="{ name: 'about' }">About</b-nav-item>
       </b-navbar-nav>
 
       <b-navbar-nav class="ml-auto">
