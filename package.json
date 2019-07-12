@@ -44,6 +44,7 @@
     "rollup-plugin-node-resolve": "^5.2.0",
     "rollup-plugin-replace": "^2.2.0",
     "rollup-plugin-vue": "^5.0.1",
+    "rollup-plugin-json": "^4.0.0",
     "semantic-release": "^15.13.19",
     "vue-template-compiler": "^2.6.10"
   },
@@ -85,16 +86,15 @@
       "url": "https://github.com/arlac77/npm-package-template-vue-app.git"
     }
   },
-  "base": "/services/ci",
-  "api": "/services/ci/api",
-  "proxyTarget": "https://mfelten.dynv6.net",
+  "config": {
+    "urlPrefix": "/services/ci",
+    "api": "/api",
+    "proxyTarget": "https://mfelten.dynv6.net/services/ci"
+  },
   "pacman": {
     "groups": "ci",
     "install": "pacman/install.sh",
     "installdir": "/services/hook-ci/frontend",
-    "properties": {
-      "urlPrefix": "/services/ci"
-    },
     "content": {
       "${installdir}/": {
         "base": "build/dist"

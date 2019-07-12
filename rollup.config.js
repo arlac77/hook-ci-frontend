@@ -2,10 +2,11 @@ import copy from "rollup-plugin-copy";
 import replace from "rollup-plugin-replace";
 import vue from "rollup-plugin-vue";
 import css from "rollup-plugin-css-only";
+import json from "rollup-plugin-json";
 import resolve from "rollup-plugin-node-resolve";
 import commonjs from "rollup-plugin-commonjs";
-import nodeGlobals from 'rollup-plugin-node-globals';
-import pkg from "./package.json";
+import nodeGlobals from "rollup-plugin-node-globals";
+import pkg, { config } from "./package.json";
 import history from "connect-history-api-fallback";
 import proxy from "http-proxy-middleware";
 import express from "express";
@@ -13,14 +14,11 @@ import { create as browserSyncFactory } from "browser-sync";
 
 const isProduction = !process.env.ROLLUP_WATCH;
 const dist = "build/dist";
-const base = "/services/ci";
-const api = "/api";
-const proxyTarget = "https://mfelten.dynv6.net/services/ci/";
 
 const globals = { vue: "Vue" };
 const external = Object.keys(pkg.dependencies);
 
-const config = {
+const rollupConfig = {
   input: "src/main.mjs",
   //external,
 
@@ -42,6 +40,10 @@ const config = {
     include: "src/**/*"
   },
   plugins: [
+    json({
+      preferConst: true,
+      compact: true
+    }),
     resolve(),
     commonjs(),
     nodeGlobals(),
@@ -54,11 +56,13 @@ const config = {
       css: false
     }),
     copy({
-      targets: ["public/index.html","public/favicon.ico"],
-      outputFolder: dist
+      targets: [
+        { src: "public/index.html", dest: dist },
+        { src: "public/favicon.ico", dest: dist }
+      ]
     }),
     replace({
-      'process.env.NODE_ENV': JSON.stringify( 'production' )
+      "process.env.NODE_ENV": JSON.stringify("production")
     })
   ]
 };
@@ -71,9 +75,9 @@ if (isProduction) {
     const app = express();
 
     app.use(
-      api,
+      config.api,
       proxy({
-        target: proxyTarget,
+        target: config.proxyTarget,
         changeOrigin: true,
         logLevel: "debug"
       })
@@ -91,4 +95,4 @@ if (isProduction) {
   }, 500);
 }
 
-export default config;
+export default rollupConfig;
