@@ -14,6 +14,7 @@ import JobLog from "./components/JobLog.vue";
 import Repository from "./components/Repository.vue";
 import Repositories from "./components/Repositories.vue";
 import Home from "./components/Home.vue";
+import About from "./components/About.vue";
 import Profile from "./components/Profile.vue";
 import Callback from "./components/Callback.vue";
 import App from "./App.vue";
@@ -28,6 +29,7 @@ const router = new Router({
   routes: [
     { path: '*', component: NotFound },
     { name: "home", path: "/", component: Home },
+    { name: "about", path: "/about", component: About },
     { name: "profile", path: "/profile", component: Profile },
     { name: "callback", path: "/callback", component: Callback },
     { name: "state", path: "/state", component: State },
