@@ -59,7 +59,7 @@
   "config": {
     "urlPrefix": "/services/ci",
     "api": "/api",
-    "proxyTarget": "https://mfelten.dynv6.net/services/ci"
+    "proxyTarget": "https://mfelten.dynv6.net/"
   },
   "release": {
     "plugins": [

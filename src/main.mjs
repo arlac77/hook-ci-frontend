@@ -18,14 +18,15 @@ import About from "./components/About.vue";
 import Profile from "./components/Profile.vue";
 import Callback from "./components/Callback.vue";
 import App from "./App.vue";
+import { config } from '../package.json';
 
 
 import "bootstrap/dist/css/bootstrap.css";
 import "bootstrap-vue/dist/bootstrap-vue.css";
 
 const router = new Router({
-  //mode: 'history',
-  //base: '/services/ci',
+  mode: 'history',
+  base: config.urlPrefix,
   routes: [
     { path: '*', component: NotFound },
     { name: "home", path: "/", component: Home },

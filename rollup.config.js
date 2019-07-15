@@ -75,10 +75,11 @@ if (isProduction) {
     const app = express();
 
     app.use(
-      config.api,
+      config.urlPrefix + config.api,
       proxy({
         target: config.proxyTarget,
         changeOrigin: true,
+        ws: true,
         logLevel: "debug"
       })
     );
@@ -86,7 +87,7 @@ if (isProduction) {
     browserSync.init({
       server: dist,
       watch: true,
-      middleware: [app, history()]
+      middleware: [app , history()]
     });
   }
 
