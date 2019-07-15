@@ -17,7 +17,7 @@ import { name, version } from '../../package.json';
 
 export default {
   name: "About",
-  props: {
+  data: {
       version,
       name
   }
