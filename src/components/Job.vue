@@ -45,6 +45,8 @@
 </template>
 
 <script>
+import { config } from '../../package.json';
+
 export default {
   name: "Job",
   props: {
@@ -63,7 +65,7 @@ export default {
   methods: {
     async refresh() {
       const data = await fetch(
-        `api/queue/${this.$route.params.queue}/job/${this.$route.params.job}`
+        `${config.api}/queue/${this.$route.params.queue}/job/${this.$route.params.job}`
       );
       this.item = await data.json();
     },
@@ -75,7 +77,7 @@ export default {
     },
     async cancel() {
       return fetch(
-        `api/queue/${this.$route.params.queue}/job/${
+        `${config.api}/queue/${this.$route.params.queue}/job/${
           this.$route.params.job
         }/cancel`,
         { method: "POST" }

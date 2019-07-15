@@ -24,6 +24,8 @@
 </template>
 
 <script>
+import { config } from '../../package.json';
+
 export default {
   name: "Queues",
   props: {
@@ -35,7 +37,7 @@ export default {
   methods: {
     async refresh() {
       this.isBusy = true;
-      const data = await fetch("api/queues");
+      const data = await fetch(`${config.api}/queues`);
       const items = await data.json();
       this.items.length = 0;
       this.items.push(...items);

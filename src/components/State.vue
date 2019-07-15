@@ -28,6 +28,8 @@
 </template>
 
 <script>
+import { config } from '../../package.json';
+
 export default {
   name: "State",
   props: {
@@ -47,7 +49,7 @@ export default {
   methods: {
     async refresh() {
       try {
-        const data = await fetch("api/nodes/state");
+        const data = await fetch(`${config.api}/nodes/state`);
         this.state = await data.json();
       } catch (e) {
         this.state = [
@@ -63,7 +65,7 @@ export default {
     },
     async restart() {
       const name = 'xxx';
-      return fetch(`api/nodes/${name}/restart`, {
+      return fetch(`${config.api}/nodes/${name}/restart`, {
         method: "POST"
       });
     }

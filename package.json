@@ -58,7 +58,7 @@
   "homepage": "https://github.com/arlac77/hook-ci-frontend#readme",
   "config": {
     "urlPrefix": "/services/ci",
-    "api": "/api",
+    "api": "/services/ci/api",
     "proxyTarget": "https://mfelten.dynv6.net/"
   },
   "release": {

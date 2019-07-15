@@ -15,6 +15,8 @@
 </template>
 
 <script>
+import { config } from '../../package.json';
+
 export default {
   name: "Queue",
   props: {
@@ -25,21 +27,21 @@ export default {
   },
   methods: {
     async refresh() {
-      const data = await fetch(`api/queue/${this.$route.params.queue}`);
+      const data = await fetch(`${config.api}/queue/${this.$route.params.queue}`);
       this.item = await data.json();
     },
     async pause() {
-      return fetch(`api/queue/${this.$route.params.queue}/pause`, {
+      return fetch(`${config.api}/queue/${this.$route.params.queue}/pause`, {
         method: "POST"
       });
     },
     async resume() {
-      return fetch(`api/queue/${this.$route.params.queue}/resume`, {
+      return fetch(`${config.api}/queue/${this.$route.params.queue}/resume`, {
         method: "POST"
       });
     },
     async empty() {
-      return fetch(`api/queue/${this.$route.params.queue}/empty`, {
+      return fetch(`${config.api}/queue/${this.$route.params.queue}/empty`, {
         method: "POST"
       });
     }

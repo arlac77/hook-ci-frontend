@@ -22,6 +22,8 @@
 </template>
 
 <script>
+import { config } from '../../package.json';
+
 export default {
   name: "Repositories",
   props: {
@@ -33,14 +35,14 @@ export default {
   methods: {
     async refresh() {
       this.isBusy = true;
-      const data = await fetch("api/repositories?pattern=arlac77/*");
+      const data = await fetch(`${config.api}/repositories?pattern=arlac77/*`);
       const items = await data.json();
       this.items.length = 0;
       this.items.push(...items);
       this.isBusy = false;
     },
     async build() {
-      await fetch("api/queue/incoming/add", {
+      await fetch(`${config.api}/queue/incoming/add`, {
         method: "POST",
         body: JSON.stringify({
           ref: "refs/heads/master",

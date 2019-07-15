@@ -10,6 +10,8 @@
 </template>
 
 <script>
+import { config } from '../../package.json';
+
 export default {
   name: "JobLog",
   props: {
@@ -21,7 +23,7 @@ export default {
   methods: {
     async refresh() {
       const data = await fetch(
-        `api/queue/${this.$route.params.queue}/job/${
+        `${config.api}/queue/${this.$route.params.queue}/job/${
           this.$route.params.job
         }/log?start=0&end=10000`
       );

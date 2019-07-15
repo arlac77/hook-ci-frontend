@@ -49,6 +49,8 @@
 </template>
 
 <script>
+import { config } from '../../package.json';
+
 export default {
   name: "Jobs",
   props: {
@@ -60,7 +62,7 @@ export default {
   methods: {
     async refresh() {
       this.isBusy = true;
-      const data = await fetch(`api/queue/${this.$route.params.queue}/jobs`);
+      const data = await fetch(`${config.api}/queue/${this.$route.params.queue}/jobs`);
       const items = await data.json();
       this.items.length = 0;
       this.items.push(...items);
