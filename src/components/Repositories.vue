@@ -7,10 +7,10 @@
       :items="items"
       :fields="fields"
     >
-      <template slot="name" slot-scope="data">
+      <template slot="fullName" slot-scope="data">
         <b-link
-          :to="{ name: 'repository', params: { repository: data.item.name } }"
-        >{{ data.item.name }}</b-link>
+          :to="{ name: 'repository', params: { repository: data.item.fullName } }"
+        >{{ data.item.fullName }}</b-link>
       </template>
 
       <div slot="table-busy" class="text-center">
@@ -58,7 +58,7 @@ export default {
     return {
       isBusy: false,
       fields: {
-        name: {
+        fullName: {
           label: "Repository",
           sortable: true
         },
