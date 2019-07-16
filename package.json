@@ -63,7 +63,7 @@
   },
   "pacman": {
     "groups": "ci",
-    "install": "pacman/install.sh",
+    "hooks": "pacman/install.sh",
     "installdir": "/services/hook-ci/frontend",
     "content": {
       "${installdir}/": {
