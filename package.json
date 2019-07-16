@@ -61,6 +61,22 @@
     "api": "/services/ci/api",
     "proxyTarget": "https://mfelten.dynv6.net/"
   },
+  "pacman": {
+    "groups": "ci",
+    "install": "pacman/install.sh",
+    "installdir": "/services/hook-ci/frontend",
+    "content": {
+      "${installdir}/": {
+        "base": "build/dist"
+      },
+      "/etc/nginx/config.d/${name}.conf": "pacman/nginx.conf"
+    },
+    "depends": {
+      "systemd": ">=242.32",
+      "nginx-mainline": ">=1.17.1",
+      "hook-ci": ">=1.36.1"
+    }
+  },
   "release": {
     "plugins": [
       "@semantic-release/commit-analyzer",
@@ -89,22 +105,6 @@
   "template": {
     "repository": {
       "url": "https://github.com/arlac77/npm-package-template-vue-app.git"
-    }
-  },
-  "pacman": {
-    "groups": "ci",
-    "install": "pacman/install.sh",
-    "installdir": "/services/hook-ci/frontend",
-    "content": {
-      "${installdir}/": {
-        "base": "build/dist"
-      },
-      "/etc/nginx/config.d/${name}.conf": "pacman/nginx.conf"
-    },
-    "depends": {
-      "systemd": ">=242.32",
-      "nginx-mainline": ">=1.17.1",
-      "hook-ci": ">=1.36.1"
     }
   }
 }
