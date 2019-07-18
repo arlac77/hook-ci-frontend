@@ -72,9 +72,8 @@
       "/etc/nginx/config.d/${name}.conf": "pacman/nginx.conf"
     },
     "depends": {
-      "systemd": ">=242.32",
       "nginx-mainline": ">=1.17.1",
-      "hook-ci": ">=1.36.1"
+      "hook-ci": ">=1.38.1"
     }
   },
   "release": {
