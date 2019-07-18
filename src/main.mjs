@@ -29,6 +29,7 @@ const router = new Router({
   base: config.urlPrefix,
   routes: [
     { path: '*', component: NotFound },
+    { name: "index", path: "/index.html", component: Home },
     { name: "home", path: "/", component: Home },
     { name: "about", path: "/about", component: About },
     { name: "profile", path: "/profile", component: Profile },
