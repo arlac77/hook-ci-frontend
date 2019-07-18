@@ -76,7 +76,7 @@ export default {
       this.refresh();
     }, 5000);
     
-    const socket = new WebSocket('wss://mfelten.dynv6.net/services/ci/api/');
+    const socket = new WebSocket(config.webSocket);
 
     socket.addEventListener('error', event => {
       console.log('ERROR', event);
