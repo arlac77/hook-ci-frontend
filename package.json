@@ -19,7 +19,7 @@
     "test": "echo disabled"
   },
   "dependencies": {
-    "bootstrap": "^4.3.1",
+    "bootstrap": "^4.4.1",
     "bootstrap-vue": "^2.0.4",
     "vue": "^2.6.10",
     "vue-filter-pretty-bytes": "^0.1.4",
