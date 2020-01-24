@@ -20,7 +20,7 @@
   },
   "dependencies": {
     "bootstrap": "^4.4.1",
-    "bootstrap-vue": "^2.1.0",
+    "bootstrap-vue": "^2.3.0",
     "vue": "^2.6.11",
     "vue-filter-pretty-bytes": "^0.1.4",
     "vue-moment-lib": "^1.2.2",
