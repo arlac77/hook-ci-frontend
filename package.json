@@ -4,7 +4,8 @@
   "description": "hook-ci web frontend",
   "keywords": [
     "ci",
-    "web"
+    "web",
+    "vue"
   ],
   "contributors": [
     {
