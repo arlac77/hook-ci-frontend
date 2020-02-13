@@ -1,3 +1,4 @@
+.nyc_output
 build
 tests
 doc
@@ -6,7 +7,5 @@ doc
 .DS_Store
 .test
 .tmp
-.npmrc
 .travis.yml
 .vscode
-.nyc_output
