@@ -36,7 +36,7 @@
     "browser-sync": "^2.26.7",
     "connect-history-api-fallback": "^1.6.0",
     "express": "^4.17.1",
-    "http-proxy-middleware": "^0.20.0",
+    "http-proxy-middleware": "^0.21.0",
     "npm-pkgbuild": "^6.11.5",
     "puppeteer": "^2.1.1",
     "rollup": "^1.31.0",
