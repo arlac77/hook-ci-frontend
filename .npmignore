@@ -4,8 +4,8 @@ tests
 doc
 *.log
 *.tmp
-.DS_Store
 .test
 .tmp
 .travis.yml
 .vscode
+rollup.config.js
