@@ -15,10 +15,10 @@
   ],
   "license": "BSD-2-Clause",
   "scripts": {
-    "package": "npm-pkgbuild pkgbuild pacman makepkg",
     "prepare": "rollup -c rollup.config.js",
     "start": "rollup -c rollup.config.js -w",
-    "test": "echo disabled"
+    "test": "echo disabled",
+    "package": "npm-pkgbuild pkgbuild pacman makepkg"
   },
   "dependencies": {
     "bootstrap": "^4.4.1",
@@ -47,7 +47,7 @@
     "rollup-plugin-node-globals": "^1.4.0",
     "rollup-plugin-replace": "^2.2.0",
     "rollup-plugin-vue": "^5.1.6",
-    "semantic-release": "^17.0.3",
+    "semantic-release": "^17.0.4",
     "vue-template-compiler": "^2.6.11"
   },
   "engines": {
