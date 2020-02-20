@@ -15,10 +15,10 @@
   ],
   "license": "BSD-2-Clause",
   "scripts": {
-    "package": "npm-pkgbuild pkgbuild pacman makepkg",
     "prepare": "rollup -c rollup.config.js",
     "start": "rollup -c rollup.config.js -w",
-    "test": "echo disabled"
+    "test": "echo disabled",
+    "package": "npm-pkgbuild pkgbuild pacman makepkg"
   },
   "dependencies": {
     "bootstrap": "^4.4.1",
