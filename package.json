@@ -40,7 +40,7 @@
     "http-proxy-middleware": "^1.0.0",
     "npm-pkgbuild": "^6.11.5",
     "puppeteer": "^2.1.1",
-    "rollup": "^1.31.1",
+    "rollup": "^1.32.0",
     "rollup-plugin-commonjs": "^10.1.0",
     "rollup-plugin-copy": "^3.3.0",
     "rollup-plugin-css-only": "^2.0.0",
@@ -110,8 +110,6 @@
     ]
   },
   "template": {
-    "repository": {
-      "url": "https://github.com/arlac77/npm-package-template-vue-app.git"
-    }
+    "inheritFrom": "arlac77/template-vue-app"
   }
 }
