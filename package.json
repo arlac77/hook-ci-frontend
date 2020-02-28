@@ -15,14 +15,15 @@
   ],
   "license": "BSD-2-Clause",
   "scripts": {
-    "package": "npm-pkgbuild pkgbuild pacman makepkg",
-    "prepare": "rollup -c rollup.config.js",
-    "start": "rollup -c rollup.config.js -w",
-    "test": "echo disabled"
+    "prepare": "rollup -c rollup.config.js && rollup -c",
+    "start": "rollup -c rollup.config.js -w && rollup -c -w",
+    "test": "echo disabled",
+    "package": "npm-pkgbuild pkgbuild pacman makepkg"
   },
   "dependencies": {
     "bootstrap": "^4.4.1",
     "bootstrap-vue": "^2.5.0",
+    "mf-styling": "arlac77/mf-styling",
     "vue": "^2.6.11",
     "vue-filter-pretty-bytes": "^0.1.4",
     "vue-moment-lib": "^1.2.2",
@@ -63,6 +64,7 @@
   "homepage": "https://github.com/arlac77/hook-ci-frontend#readme",
   "config": {
     "api": "/services/ci/api",
+    "base": "/services/hook-ci-frontend/",
     "proxyTarget": "https://mfelten.dynv6.net/",
     "urlPrefix": "/services/ci",
     "webSocket": "wss://mfelten.dynv6.net/services/ci/api/"
