@@ -110,6 +110,9 @@
     ]
   },
   "template": {
-    "inheritFrom": "arlac77/template-vue-app"
+    "inheritFrom": [
+      "arlac77/template-vue-app",
+      "arlac77/template-github"
+    ]
   }
 }
