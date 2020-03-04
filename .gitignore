@@ -4,3 +4,6 @@ build
 npm-debug.log
 *.dump
 *.log
+.tmp
+*.node
+.test
