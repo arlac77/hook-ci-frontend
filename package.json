@@ -22,7 +22,7 @@
   },
   "dependencies": {
     "bootstrap": "^4.4.1",
-    "bootstrap-vue": "^2.5.0",
+    "bootstrap-vue": "^2.6.0",
     "mf-styling": "arlac77/mf-styling",
     "vue": "^2.6.11",
     "vue-filter-pretty-bytes": "^0.1.4",
