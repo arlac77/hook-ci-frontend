@@ -1,4 +1,3 @@
-.nyc_output
 build
 tests
 doc
@@ -8,8 +7,8 @@ doc
 .tmp
 .travis.yml
 .vscode
+rollup.config.*
 *.css.map
 .github
-rollup.config.mjs
 *.js.map
 *.mjs.map
