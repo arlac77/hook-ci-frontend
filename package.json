@@ -42,7 +42,7 @@
     "http-proxy-middleware": "^1.0.3",
     "npm-pkgbuild": "^6.11.18",
     "puppeteer": "^3.0.0",
-    "rollup": "^2.7.6",
+    "rollup": "^2.8.0",
     "rollup-plugin-commonjs": "^10.1.0",
     "rollup-plugin-copy": "^3.3.0",
     "rollup-plugin-css-only": "^2.0.0",
@@ -53,7 +53,7 @@
     "vue-template-compiler": "^2.6.11"
   },
   "engines": {
-    "node": ">=14.1.0"
+    "node": ">=14.2.0"
   },
   "repository": {
     "type": "git",
