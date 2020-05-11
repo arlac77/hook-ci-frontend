@@ -9,5 +9,6 @@
       "src": "facicon.ico",
       "sizes": "16x16"
     }
-  ]
+  ],
+  "short_name": "{{name}}"
 }
