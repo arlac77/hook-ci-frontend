@@ -82,7 +82,7 @@
       "/etc/nginx/config.d/${name}.conf": "pacman/nginx.conf"
     },
     "depends": {
-      "nginx-mainline": ">=1.17.1",
+      "nginx-mainline": ">=1.19.1",
       "hook-ci": ">=1.40.2"
     }
   },
