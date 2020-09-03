@@ -7,6 +7,4 @@ npm-debug.log
 .tmp
 *.node
 .test
-*.mjs.map
-*.css.map
-*.js.map
+*.map
