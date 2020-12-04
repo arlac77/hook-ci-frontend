@@ -1,6 +1,9 @@
 {
   "name": "hook-ci-frontend",
   "version": "0.0.0-semantic-release",
+  "publishConfig": {
+    "access": "public"
+  },
   "description": "hook-ci web frontend",
   "keywords": [
     "ci",
@@ -113,8 +116,8 @@
   },
   "template": {
     "inheritFrom": [
-      "arlac77/template-vue-app",
-      "arlac77/template-github"
+      "arlac77/template-arlac77-github",
+      "arlac77/template-vue-app"
     ]
   }
 }
