@@ -5,7 +5,13 @@
   "start_url": "./index.html",
   "display": "standalone",
   "orientation": "portrait",
-  "icons": [],
+  "icons": [
+    {
+      "src": "images/icon.svg",
+      "sizes": "150x150",
+      "purpose": "any"
+    }
+  ],
   "background_color": "#ffffff",
   "categories": []
 }
