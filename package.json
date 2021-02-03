@@ -46,8 +46,8 @@
     "connect-history-api-fallback": "^1.6.0",
     "express": "^4.17.1",
     "http-proxy-middleware": "^1.0.3",
-    "npm-pkgbuild": "^6.12.22",
-    "puppeteer": "^5.0.0",
+    "npm-pkgbuild": "^6.12.23",
+    "puppeteer": "^6.0.0",
     "rollup": "^2.38.4",
     "rollup-plugin-copy": "^3.3.0",
     "rollup-plugin-css-only": "^3.0.0",
@@ -98,7 +98,9 @@
         {
           "publishCmd": "npx npm-pkgbuild --pkgver ${nextRelease.version} pkgbuild pacman makepkg"
         }
-      ]
+      ],
+      "@semantic-release/npm",
+      "@semantic-release/github"
     ]
   },
   "ava": {
