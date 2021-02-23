@@ -48,11 +48,11 @@
     "http-proxy-middleware": "^1.0.3",
     "npm-pkgbuild": "^6.12.23",
     "puppeteer": "^7.0.0",
-    "rollup": "^2.39.0",
+    "rollup": "^2.39.1",
     "rollup-plugin-copy": "^3.3.0",
     "rollup-plugin-css-only": "^3.0.0",
     "rollup-plugin-node-globals": "^1.4.0",
-    "rollup-plugin-vue": "^5.1.6",
+    "rollup-plugin-vue": "^6.0.0",
     "semantic-release": "^17.3.9",
     "vue-template-compiler": "^2.6.11"
   },
