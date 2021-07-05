@@ -82,7 +82,8 @@
       "${installdir}/": {
         "base": "build/dist"
       },
-      "/etc/nginx/config.d/${name}.conf": "pacman/nginx.conf"
+      "/etc/nginx/config.d/${name}.conf": "pacman/nginx.conf",
+      "/etc/nginx/sites/common/${name}.conf": "pacman/nginx.conf"
     },
     "depends": {
       "nginx-mainline": ">=1.21.0",
