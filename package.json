@@ -86,7 +86,7 @@
       "/etc/nginx/sites/common/${name}.conf": "pacman/nginx.conf"
     },
     "depends": {
-      "nginx-mainline": ">=1.21.0",
+      "nginx-mainline": ">=1.21.1",
       "hook-ci": ">=1.40.2"
     }
   },
