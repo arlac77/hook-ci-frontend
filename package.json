@@ -46,7 +46,7 @@
     "connect-history-api-fallback": "^1.6.0",
     "express": "^4.17.1",
     "http-proxy-middleware": "^2.0.0",
-    "npm-pkgbuild": "^6.12.68",
+    "npm-pkgbuild": "^6.12.72",
     "puppeteer": "^11.0.0",
     "rollup": "^2.60.0",
     "rollup-plugin-copy": "^3.4.0",
