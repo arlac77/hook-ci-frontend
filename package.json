@@ -30,7 +30,7 @@
     "vue": "^2.6.13",
     "vue-filter-pretty-bytes": "^0.1.4",
     "vue-moment-lib": "^1.2.2",
-    "vue-router": "^3.5.1",
+    "vue-router": "^4.0.11",
     "vuex": "^3.6.2"
   },
   "devDependencies": {
