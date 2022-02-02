@@ -48,7 +48,7 @@
     "http-proxy-middleware": "^2.0.0",
     "npm-pkgbuild": "^7.23.6",
     "puppeteer": "^13.0.0",
-    "rollup": "^2.66.1",
+    "rollup": "^2.67.0",
     "rollup-plugin-copy": "^3.4.0",
     "rollup-plugin-css-only": "^3.1.0",
     "rollup-plugin-node-globals": "^1.4.0",
