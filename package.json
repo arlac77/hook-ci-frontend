@@ -90,6 +90,15 @@
       "hook-ci": ">=1.40.2"
     }
   },
+  "pkg": {
+    "hooks": "pkg/hooks.sh",
+    "content": {
+      "/etc/nginx/sites/common/${name}.conf": "pkg/nginx.conf"
+    },
+    "depends": {
+      "nginx-mainline": ">=1.21.4"
+    }
+  },
   "release": {
     "plugins": [
       "@semantic-release/commit-analyzer",
