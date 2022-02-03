@@ -46,7 +46,7 @@
     "connect-history-api-fallback": "^1.6.0",
     "express": "^4.17.1",
     "http-proxy-middleware": "^2.0.0",
-    "npm-pkgbuild": "^7.23.6",
+    "npm-pkgbuild": "^7.25.5",
     "puppeteer": "^13.0.0",
     "rollup": "^2.67.0",
     "rollup-plugin-copy": "^3.4.0",
@@ -74,24 +74,28 @@
     "urlPrefix": "/services/ci",
     "webSocket": "wss://mfelten.dynv6.net/services/ci/api/"
   },
-  "pacman": {
-    "groups": "ci",
-    "hooks": "pacman/install.sh",
-    "installdir": "/services/hook-ci/frontend",
+  "pkg": {
+    "groups": "web",
     "content": {
       "${installdir}/": {
-        "base": "build/dist"
+        "base": "public/"
       },
-      "/etc/nginx/config.d/${name}.conf": "pacman/nginx.conf",
-      "/etc/nginx/sites/common/${name}.conf": "pacman/nginx.conf"
+      "/etc/nginx/sites/common/${name}.conf": "pkg/nginx.conf"
     },
+    "installdir": "/services/hook-ci-frontend/frontend",
+    "hooks": "pkg/hooks.sh",
     "depends": {
-      "nginx-mainline": ">=1.21.4",
-      "hook-ci": ">=1.40.2"
+      "nginx-mainline": ">=1.21.4"
     }
   },
   "release": {
     "plugins": [
+      [
+        "@semantic-release/exec",
+        {
+          "publishCmd": "npx npm-pkgbuild"
+        }
+      ],
       "@semantic-release/commit-analyzer",
       "@semantic-release/release-notes-generator",
       [
